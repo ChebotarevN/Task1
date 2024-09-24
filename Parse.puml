@@ -1,0 +1,26 @@
+@startuml
+class fx.calculateprocentfx.HelloController {
+~ Procent procent
+~ int numProcent
+- Label procent15
+~ TextField inputText
+~ CheckBox checkBox
+~ Button button10
+# void onClickProcent15()
+# void onClickProcent10()
+# void onClickProcent3()
+# void onChoiceProcent()
+}
+
+
+class fx.calculateprocentfx.HelloApplication {
++ void start(Stage)
++ {static} void main(String[])
+}
+
+class fx.calculateprocentfx.Procent {
+}
+
+
+javafx.application.Application <|-- fx.calculateprocentfx.HelloApplication
+@enduml
