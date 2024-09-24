@@ -11,6 +11,7 @@ target/
 *.iws
 *.iml
 *.ipr
+.idea
 
 ### Eclipse ###
 .apt_generated
@@ -30,9 +31,12 @@ target/
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
-
 ### VS Code ###
 .vscode/
 
 ### Mac OS ###
 .DS_Store
+
+.mwn
+mvnw
+mvnw.cmd
