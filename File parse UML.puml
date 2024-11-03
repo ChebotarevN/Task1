@@ -1,0 +1,54 @@
+@startuml
+class fx.abstructcanvasfx.CanvasApplication {
++ void start(Stage)
++ {static} void main(String[])
+}
+
+abstract class fx.model.Shape {
+# Color color
+# double x
++ {abstract}double area()
++ {abstract}void draw(GraphicsContext)
++ void setColor(Color)
+}
+
+
+class fx.model.Rectangle {
+~ Color colorStroke
+~ double length
+~ double width
++ double area()
++ void draw(GraphicsContext)
++ String toString()
+}
+
+
+class fx.model.Circle {
+~ Color colorStroke
+- double diametr
+~ double radius
++ double area()
++ void draw(GraphicsContext)
++ String toString()
+}
+
+
+class fx.abstructcanvasfx.CanvasController {
+~ Canvas canvas
+~ ColorPicker colorPicker
+~ TextField fieldX
+~ TextField fieldLenght
+~ TextField fieldNum
+~ Label textLast
+# void onClickRectangle()
+# void onClickCircle()
+# void onClickClear()
+}
+
+
+
+
+javafx.application.Application <|-- fx.abstructcanvasfx.CanvasApplication
+fx.model.Shape <|-- fx.model.Rectangle
+fx.model.Shape <|-- fx.model.Circle
+@enduml
