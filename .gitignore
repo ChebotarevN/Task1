@@ -42,3 +42,7 @@ build/
 mvnw
 mvnw.cmd
 .mvn
+
+### Parser ###
+*.png
+*.puml
