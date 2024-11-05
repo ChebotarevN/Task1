@@ -2,11 +2,11 @@
 ----------------
 **Описание**:  Это приложение позволяет выбрать цвет и контур, координаты и размеры, а также количество фигур.
  - **Технологический стек**: JavaFX.
- - **Статус**:  1.0-SNAPSHOT.
+ - **Статус**:  1.0.
 
 **Скриншот рабочего окна приложения**:
 
 ![Скриншот приложения](https://github.com/user-attachments/assets/badf095a-9117-4f42-b0a8-9968552f218f)
 
 ## Архитектура
-![File parse UML](https://github.com/user-attachments/assets/7a3c2ccb-9511-4512-a432-4eaaeca8d6ec)
+![UML model](https://github.com/user-attachments/assets/0e9467ea-c0b3-4c0e-a917-cac4f0b83a4c)
