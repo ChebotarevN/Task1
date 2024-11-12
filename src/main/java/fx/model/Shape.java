@@ -3,7 +3,7 @@ package fx.model;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-abstract class Shape {
+public abstract class Shape {
     //параметры фигуры - приватные поля
     protected Color color;
     protected double x, y;

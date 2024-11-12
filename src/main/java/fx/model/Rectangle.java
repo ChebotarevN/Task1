@@ -4,29 +4,27 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 public class Rectangle extends Shape {
-    Color colorStroke;
-    double length;
-    double width;
+    private Color colorStroke;
+    private double size;
 
-    public Rectangle(Color color, Color colorStroke, double x, double y, double length, double width) {
+    public Rectangle(Color color, Color colorStroke, double x, double y, double size) {
         // calling Shape constructor
         super(color, x, y);
         this.colorStroke = colorStroke;
-        this.length = length;
-        this.width = width;
+        this.size = size;
     }
 
     @Override
     public double area() {
-        return length * width;
+        return size * size;
     }
 
     @Override
     public void draw(GraphicsContext gr) {
         gr.setFill(color);
         gr.setStroke(colorStroke);
-        gr.fillRect(x, y, width, length);
-        gr.strokeRect(x, y, width, length);
+        gr.fillRect(x, y, size, size);
+        gr.strokeRect(x, y, size, size);
     }
 
     @Override
