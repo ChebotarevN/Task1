@@ -31,6 +31,6 @@ public class Circle extends Shape {
 
     @Override
     public String toString() {
-        return "Circle color is: " + super.color + "; color stroke is: " + "; area is: " + area();
+        return "Цвет круга: " + super.color + "; цвет границы: " + colorStroke + "; площадь: " + area();
     }
 }

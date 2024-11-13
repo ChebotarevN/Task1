@@ -29,6 +29,6 @@ public class Rectangle extends Shape {
 
     @Override
     public String toString() {
-        return "Rectangle color is: " + super.color + "; color stroke is: " + colorStroke + "; area is: " + area();
+        return "Цвет прямоугольника: " + super.color + "; цвет границы: " + colorStroke + "; площадь: " + area();
     }
 }

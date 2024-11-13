@@ -25,6 +25,29 @@ public class Triangle extends Shape {
 
     @Override
     public double area() {
-        return 0;
+        int n = 3;
+        double[] xCoords = {x + 10, x + (18 * size), x + (30 * size)};
+        double[] yCoords = {y + (20 * size), y + (10 * size), y + (20 * size)};
+        double area = 0.0;
+        for (int i = 0; i < n - 2; i++) {
+            int v1 = 0;
+            int v2 = i + 1;
+            int v3 = i + 2;
+            double triangleArea = Math.abs(
+                    0.5
+                            * (xCoords[v1] * (yCoords[v2] - yCoords[v3])
+                            + xCoords[v2]
+                            * (yCoords[v3] - yCoords[v1])
+                            + xCoords[v3]
+                            * (yCoords[v1] - yCoords[v2])));
+            area += triangleArea;
+        }
+        System.out.println("Площадь треугольника: " + area);
+        return area;
+    }
+
+    @Override
+    public String toString() {
+        return "Цвет треугольника: " + super.color + "; цвет границы: " + colorStroke + "; площадь: " + area();
     }
 }

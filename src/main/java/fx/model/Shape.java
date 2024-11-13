@@ -15,7 +15,7 @@ public abstract class Shape {
 
     // конструктор
     public Shape(Color color, double x, double y) {
-        System.out.println("Shape constructor called");
+        //System.out.println("Shape constructor called");
         this.color = color;
         this.x = x;
         this.y = y;
@@ -25,4 +25,4 @@ public abstract class Shape {
     public void setColor(Color color) {
         this.color = color;
     }
-} 
+}

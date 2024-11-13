@@ -26,6 +26,29 @@ public class Pentagon extends Shape {
 
     @Override
     public double area() {
-        return 0;
+        int n = 5;
+        double[] xCoords = {x + 2, x + (7 * size), x + (13 * size), x + (10 * size), x + (3 * size)};
+        double[] yCoords = {y + (8 * size), y + (2 * size), y + (8 * size), y + (14 * size), y + (14 * size)};
+        double area = 0.0;
+        for (int i = 0; i < n - 2; i++) {
+            int v1 = 0;
+            int v2 = i + 1;
+            int v3 = i + 2;
+            double triangleArea = Math.abs(
+                    0.5
+                            * (xCoords[v1] * (yCoords[v2] - yCoords[v3])
+                            + xCoords[v2]
+                            * (yCoords[v3] - yCoords[v1])
+                            + xCoords[v3]
+                            * (yCoords[v1] - yCoords[v2])));
+            area += triangleArea;
+        }
+        System.out.println("Площадь пятиугольника: " + area);
+        return area;
+    }
+
+    @Override
+    public String toString() {
+        return "Цвет пятиугольника: " + super.color + "; цвет границы: " + colorStroke + "; площадь: " + area();
     }
 }
