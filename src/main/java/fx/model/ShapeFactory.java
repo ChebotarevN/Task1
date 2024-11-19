@@ -11,6 +11,10 @@ public class ShapeFactory {
                 return new Rectangle(color, colorStroke, x, y, size);
             case 3:
                 return new Triangle(color, colorStroke, x, y, size);
+            case 2:
+                return new Angle(color, colorStroke, x, y, size);
+            case 1:
+                return new Straight(color, colorStroke, x, y, size);
             case 0:
                 return new Circle(color, colorStroke, x, y, size);
             default:
