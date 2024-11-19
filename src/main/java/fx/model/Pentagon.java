@@ -4,12 +4,10 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 public class Pentagon extends Shape {
-    private Color colorStroke;
     private double size;
 
     public Pentagon(Color color, Color colorStroke, double x, double y, double size) {
-        super(color, x, y);
-        this.colorStroke = colorStroke;
+        super(color, colorStroke, x, y);
         this.size = size;
     }
 
@@ -53,7 +51,12 @@ public class Pentagon extends Shape {
     }
 
     @Override
-    public double getSize() {
-        return size;
+    public double[] getSize() {
+        return new double[]{size * 15, size * 15};
+    }
+
+    @Override
+    public double setSize(double size) {
+        return this.size = size;
     }
 }

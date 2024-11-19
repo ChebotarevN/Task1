@@ -4,12 +4,10 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 public class Angle extends Shape {
-    private Color colorStroke;
     private double size;
 
     public Angle(Color color, Color colorStroke, double x, double y, double size) {
-        super(color, x, y);
-        this.colorStroke = colorStroke;
+        super(color, colorStroke, x, y);
         this.size = size;
     }
 
@@ -22,8 +20,8 @@ public class Angle extends Shape {
     public void draw(GraphicsContext gr) {
         gr.setStroke(colorStroke);
         gr.setLineWidth(2);
-        gr.strokePolygon(new double[]{x, x * size}, new double[]{y, y}, 2);
-        gr.strokePolygon(new double[]{x, x}, new double[]{x, y * size}, 2);
+        gr.strokePolygon(new double[]{x, x + size * 50}, new double[]{y, y}, 2);
+        gr.strokePolygon(new double[]{x, x}, new double[]{y, y + size * 50}, 2);
     }
 
     @Override
@@ -32,7 +30,12 @@ public class Angle extends Shape {
     }
 
     @Override
-    public double getSize() {
-        return size;
+    public double[] getSize() {
+        return new double[]{size * 50, size * 50};
+    }
+
+    @Override
+    public double setSize(double size) {
+        return this.size = size;
     }
 }

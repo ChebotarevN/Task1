@@ -35,7 +35,7 @@ public class CanvasController implements Initializable {
     Label textLast;
     @FXML
     ListView listView;
-    ObservableList<Shape> items;
+    private ObservableList<Shape> items;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -43,7 +43,10 @@ public class CanvasController implements Initializable {
         Rectangle rectangle = new Rectangle(Color.BLACK, Color.BLACK, 0, 0, 10);
         Circle circle = new Circle(Color.BLACK, Color.BLACK, 0, 0, 10);
         Triangle triangle = new Triangle(Color.BLACK, Color.BLACK, 0, 0, 2);
-        items = FXCollections.observableArrayList(circle, rectangle, triangle);
+        Angle angle = new Angle(Color.BLACK, Color.BLACK, 0, 0, 2);
+        Pentagon pentagon = new Pentagon(Color.BLACK, Color.BLACK, 0, 0, 2);
+        Straight straight = new Straight(Color.BLACK, Color.BLACK, 0, 0, 2);
+        items = FXCollections.observableArrayList(circle, straight, angle, triangle, rectangle, pentagon);
         listView.setItems(items);
         listView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
@@ -81,8 +84,7 @@ public class CanvasController implements Initializable {
         int index = listView.getSelectionModel().getSelectedIndex(); //получение индекса выбора из списка
         Shape shape = (Shape) items.get(index).clone(); // создание копии фигуры
         shape.setColor(colorPicker.getValue()); // установка цвета заполнения фигуры по значению элемента управления colorPicker
-        shape.setXY(mouseEvent.getX() - shape.getSize() / 2, mouseEvent.getY() - shape.getSize() / 2);
+        shape.setXY(mouseEvent.getX() - shape.getSize()[0] / 2, mouseEvent.getY() - shape.getSize()[1] / 2);
         shape.draw(gc); // рисование копии фигуры в точке, полученной из события MouseEvent x
-
     }
 }

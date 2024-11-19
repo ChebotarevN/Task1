@@ -4,11 +4,10 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 public class Triangle extends Shape {
-    private Color colorStroke;
     private double size;
 
     public Triangle(Color color, Color colorStroke, double x, double y, double size) {
-        super(color, x, y);
+        super(color, colorStroke, x, y);
         this.colorStroke = colorStroke;
         this.size = size;
     }
@@ -52,7 +51,12 @@ public class Triangle extends Shape {
     }
 
     @Override
-    public double getSize() {
-        return size * 30;
+    public double[] getSize() {
+        return new double[]{size * 35, size * 30};
+    }
+
+    @Override
+    public double setSize(double size) {
+        return this.size = size;
     }
 }

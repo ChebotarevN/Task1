@@ -4,25 +4,23 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 public class Straight extends Shape {
-    private Color colorStroke;
     private double size;
 
     public Straight(Color color, Color colorStroke, double x, double y, double size) {
-        super(color, x, y);
-        this.colorStroke = colorStroke;
+        super(color, colorStroke, x, y);
         this.size = size;
     }
 
     @Override
     public double area() {
-        return x * size - x;
+        return (x + size * 100);
     }
 
     @Override
     public void draw(GraphicsContext gr) {
         gr.setStroke(colorStroke);
         gr.setLineWidth(2);
-        gr.strokePolygon(new double[]{x, x * size}, new double[]{y, y}, 2);
+        gr.strokePolygon(new double[]{x, x + size * 100}, new double[]{y, y}, 2);
     }
 
     @Override
@@ -31,7 +29,12 @@ public class Straight extends Shape {
     }
 
     @Override
-    public double getSize() {
-        return size;
+    public double[] getSize() {
+        return new double[]{(x + size * 100), 0};
+    }
+
+    @Override
+    public double setSize(double size) {
+        return this.size = size;
     }
 }
