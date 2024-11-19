@@ -8,6 +8,11 @@
 
 <FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.abstructcanvasfx.CanvasController">
    <children>
+      <ListView fx:id="listView" prefHeight="200.0" prefWidth="400.0">
+         <FlowPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </FlowPane.margin>
+      </ListView>
       <Label text="Введите количество сторон от 0 до 5:">
          <FlowPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -61,7 +66,7 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </FlowPane.margin>
       </HBox>
-      <Canvas fx:id="canvas" height="200.0" width="400.0">
+      <Canvas fx:id="canvas" height="200.0" onMousePressed="#drawShape" width="400.0">
          <FlowPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </FlowPane.margin></Canvas>

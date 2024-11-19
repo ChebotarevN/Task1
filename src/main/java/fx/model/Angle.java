@@ -30,4 +30,9 @@ public class Angle extends Shape {
     public String toString() {
         return "Цвет угла: " + colorStroke + "; площадь: " + area();
     }
+
+    @Override
+    public double getSize() {
+        return size;
+    }
 }

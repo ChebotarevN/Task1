@@ -50,4 +50,9 @@ public class Triangle extends Shape {
     public String toString() {
         return "Цвет треугольника: " + super.color + "; цвет границы: " + colorStroke + "; площадь: " + area();
     }
+
+    @Override
+    public double getSize() {
+        return size * 30;
+    }
 }

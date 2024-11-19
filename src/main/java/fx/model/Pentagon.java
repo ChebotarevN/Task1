@@ -51,4 +51,9 @@ public class Pentagon extends Shape {
     public String toString() {
         return "Цвет пятиугольника: " + super.color + "; цвет границы: " + colorStroke + "; площадь: " + area();
     }
+
+    @Override
+    public double getSize() {
+        return size;
+    }
 }

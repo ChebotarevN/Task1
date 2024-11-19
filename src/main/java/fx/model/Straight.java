@@ -29,4 +29,9 @@ public class Straight extends Shape {
     public String toString() {
         return "Цвет линии: " + colorStroke + "; площадь: " + area();
     }
+
+    @Override
+    public double getSize() {
+        return size;
+    }
 }

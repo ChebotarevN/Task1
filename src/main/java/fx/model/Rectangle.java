@@ -31,4 +31,9 @@ public class Rectangle extends Shape {
     public String toString() {
         return "Цвет прямоугольника: " + super.color + "; цвет границы: " + colorStroke + "; площадь: " + area();
     }
+
+    @Override
+    public double getSize() {
+        return size;
+    }
 }
