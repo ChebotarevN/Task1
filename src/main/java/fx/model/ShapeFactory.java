@@ -2,23 +2,27 @@ package fx.model;
 
 import javafx.scene.paint.Color;
 
+import java.util.HashMap;
+
 public class ShapeFactory {
-    public Shape createShape(int numberOfSides, Color color, Color colorStroke, double x, double y, double size) {
-        switch (numberOfSides) {
-            case 5:
-                return new Pentagon(color, colorStroke, x, y, size);
-            case 4:
-                return new Rectangle(color, colorStroke, x, y, size);
-            case 3:
-                return new Triangle(color, colorStroke, x, y, size);
-            case 2:
-                return new Angle(color, colorStroke, x, y, size);
-            case 1:
-                return new Straight(color, colorStroke, x, y, size);
-            case 0:
-                return new Circle(color, colorStroke, x, y, size);
-            default:
-                return null;
-        }
+    private HashMap<Integer, Shape> shapes;
+
+    public ShapeFactory() {
+        shapes = new HashMap<>();
+        shapes.put(0, new Circle(Color.BLACK, Color.BLACK, 0, 0, 0));
+        shapes.put(1, new Straight(Color.BLACK, Color.BLACK, 0, 0, 0));
+        shapes.put(2, new Angle(Color.BLACK, Color.BLACK, 0, 0, 0));
+        shapes.put(3, new Triangle(Color.BLACK, Color.BLACK, 0, 0, 0));
+        shapes.put(4, new Rectangle(Color.BLACK, Color.BLACK, 0, 0, 0));
+        shapes.put(5, new Pentagon(Color.BLACK, Color.BLACK, 0, 0, 0));
+    }
+
+    public Shape createShape(int index, Color color, Color colorStroke, double x, double y, double size) {
+        Shape shape = shapes.get(index);
+        shape.setColor(color);
+        shape.setColorStroke(colorStroke);
+        shape.setXY(x, y);
+        shape.setSize(size);
+        return shape;
     }
 }
