@@ -13,6 +13,7 @@ import javafx.scene.paint.Color;
 import javafx.util.Callback;
 
 import java.net.URL;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class CanvasController implements Initializable {
@@ -37,6 +38,7 @@ public class CanvasController implements Initializable {
     @FXML
     ListView listView;
     private ObservableList<Shape> items;
+    private HashMap<Class, String> shapeName = new HashMap<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -48,6 +50,12 @@ public class CanvasController implements Initializable {
         Pentagon pentagon = new Pentagon(Color.BLACK, Color.BLACK, 5, 5, 2);
         Straight straight = new Straight(Color.BLACK, Color.BLACK, 5, 5, 2);
         items = FXCollections.observableArrayList(circle, straight, angle, triangle, rectangle, pentagon);
+        shapeName.put(Circle.class, "Круг");
+        shapeName.put(Straight.class, "Линия");
+        shapeName.put(Angle.class, "Угол");
+        shapeName.put(Triangle.class, "Треугольник");
+        shapeName.put(Rectangle.class, "Прямоугольник");
+        shapeName.put(Pentagon.class, "Пятиугольник");
         listView.setCellFactory((Callback<ListView<Shape>, ListCell<Shape>>) _ -> new CellList());
         listView.setItems(items);
         listView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
@@ -96,6 +104,6 @@ public class CanvasController implements Initializable {
             }
         }
         shape.draw(gc); // рисование копии фигуры в точке, полученной из события MouseEvent x
-        textLast.setText(shape.getClass().getSimpleName());
+        textLast.setText(shapeName.get(shape.getClass()));
     }
 }

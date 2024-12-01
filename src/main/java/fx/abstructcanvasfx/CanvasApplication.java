@@ -11,7 +11,7 @@ public class CanvasApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(CanvasApplication.class.getResource("canvas.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 420, 790);
+        Scene scene = new Scene(fxmlLoader.load(), 420, 700);
         stage.setTitle("AbstractCanvasFX");
         stage.setScene(scene);
         stage.show();

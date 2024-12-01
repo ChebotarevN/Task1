@@ -13,16 +13,6 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </FlowPane.margin>
       </ListView>
-      <Label text="Введите количество сторон от 0 до 5:">
-         <FlowPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </FlowPane.margin>
-      </Label>
-      <TextField fx:id="numberSide" minWidth="-Infinity" prefWidth="400.0" promptText="Введите количество сторон у фигуры">
-         <FlowPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </FlowPane.margin>
-      </TextField>
       <HBox alignment="CENTER">
          <children>
             <Label text="Цвет заливки">
@@ -66,7 +56,7 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </FlowPane.margin>
       </HBox>
-      <Canvas fx:id="canvas" height="200.0" onMousePressed="#drawShape" width="400.0">
+      <Canvas fx:id="canvas" height="200.0" onMouseDragged="#drawShape" onMousePressed="#drawShape" width="400.0">
          <FlowPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </FlowPane.margin></Canvas>
@@ -74,30 +64,11 @@
          <children>
             <HBox prefHeight="100.0" prefWidth="420.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#onClickDrow" text="Нарисовать">
-                     <HBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-            </HBox>
-            <HBox prefHeight="100.0" prefWidth="420.0">
-               <children>
                   <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#onClickClear" text="Очистить">
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
                   </Button>
-                  <TextField fx:id="fieldX" promptText="x">
-                     <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </HBox.margin>
-                  </TextField>
-                  <TextField fx:id="fieldY" promptText="y">
-                     <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </HBox.margin>
-                  </TextField>
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
@@ -116,15 +87,6 @@
                      </HBox.margin>
                   </Label>
                </children></HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <TextField fx:id="fieldNum" promptText="Сколько раз вывести фигуру">
-                     <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </HBox.margin>
-                  </TextField>
-               </children>
-            </HBox>
          </children></VBox>
    </children>
 </FlowPane>
