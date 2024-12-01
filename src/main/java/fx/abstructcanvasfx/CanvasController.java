@@ -1,5 +1,6 @@
 package fx.abstructcanvasfx;
 
+import fx.Momento;
 import fx.model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -39,10 +40,10 @@ public class CanvasController implements Initializable {
     ListView listView;
     private ObservableList<Shape> items;
     private HashMap<Class, String> shapeName = new HashMap<>();
+    private Momento momento = new Momento();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //Square square =new Square();
         Rectangle rectangle = new Rectangle(Color.BLACK, Color.BLACK, 5, 5, 15);
         Circle circle = new Circle(Color.BLACK, Color.BLACK, 5, 5, 15);
         Triangle triangle = new Triangle(Color.BLACK, Color.BLACK, 5, 5, 2);
@@ -62,29 +63,11 @@ public class CanvasController implements Initializable {
     }
 
     @FXML
-    protected void onClickDrow() {
-        GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
-        ShapeFactory shapeFactory = new ShapeFactory();
-        double x = Double.parseDouble(fieldX.getText());
-        double size = Double.parseDouble(fieldSize.getText());
-        System.out.println(fieldNum.getText());
-        for (int i = 0; i < Integer.parseInt(fieldNum.getText()); i++) {
-            Shape shape = shapeFactory.createShape(Integer.parseInt(numberSide.getText()),
-                    colorPicker.getValue(),
-                    colorPickerStroke.getValue(),
-                    x + (i * size) + (i * 10),
-                    Double.parseDouble(fieldY.getText()),
-                    Double.parseDouble(fieldSize.getText())
-            );
-            shape.draw(graphicsContext);
-            System.out.println(shape);
-        }
-    }
-
-    @FXML
     protected void onClickClear() {
+        momento = new Momento();
         GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
         graphicsContext.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+        textLast.setText("Ничего не нарисовано");
         System.out.println("Очищено\n");
     }
 
@@ -103,7 +86,21 @@ public class CanvasController implements Initializable {
                 System.out.println("Введена строка в поле size");
             }
         }
-        shape.draw(gc); // рисование копии фигуры в точке, полученной из события MouseEvent x
+        momento.push(shape);
+        for (Shape item : momento.getListShapes()) {
+            item.draw(gc);
+        }
         textLast.setText(shapeName.get(shape.getClass()));
+    }
+
+    public void undoLast() {
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+        momento.poll();
+        for (Shape item : momento.getListShapes()) {
+            item.draw(gc);
+        }
+        if (momento.getSize() == 0)
+            textLast.setText("Ничего не нарисовано");
     }
 }

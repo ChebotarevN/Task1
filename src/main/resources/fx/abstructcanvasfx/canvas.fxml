@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 
-<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.abstructcanvasfx.CanvasController">
+<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.abstructcanvasfx.CanvasController">
    <children>
       <ListView fx:id="listView" prefHeight="200.0" prefWidth="400.0">
          <FlowPane.margin>
@@ -64,6 +64,11 @@
          <children>
             <HBox prefHeight="100.0" prefWidth="420.0">
                <children>
+                  <Button mnemonicParsing="false" onAction="#undoLast" text="Отменить первую фигуру">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
                   <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#onClickClear" text="Очистить">
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
