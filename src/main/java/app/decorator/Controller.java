@@ -1,13 +1,13 @@
 package app.decorator;
 
+import app.christmass.*;
 import app.model.*;
-import javafx.animation.*;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
@@ -15,12 +15,11 @@ import javafx.scene.effect.*;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.*;
-import javafx.scene.shape.FillRule;
-import javafx.util.Duration;
 
 import java.net.URL;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -51,10 +50,13 @@ public class Controller implements Initializable {
     @FXML
     HBox boxGradient;
 
+    @FXML
+    Pane pane;
+
     private ObservableList<Shape> items;
     private ObservableList<String> listFill;
     private ObservableList<String> listEffect;
-    private HashMap<Class, String> shapeName = new HashMap<>();
+    private ArrayList<String> lastShape = new ArrayList<>();
     private Momento momento = new Momento();
 
     @Override
@@ -73,10 +75,29 @@ public class Controller implements Initializable {
         choiceFill.getSelectionModel().selectedIndexProperty().addListener((observableValue, o, t1) -> {
             changeFill(t1.intValue());
         });
-        listEffect = FXCollections.observableArrayList("Non effect", "Inner Shadow", "Blur", "Drop Shadow");
+        listEffect = FXCollections.observableArrayList("Non effect", "Inner Shadow", "Blur", "Drop Shadow", "Fade Transition");
         choiceEffect.setItems(listEffect);
         choiceEffect.setValue("Non effect");
+    }
 
+    @FXML
+    public void treeButton() {
+        ChristmasTree tree = new ChristmasTreeImpl();
+        tree.draw(pane);
+
+        tree = new Presents(new ChristmasTreeImpl());
+        tree.draw(pane);
+
+        tree = new Star(new ChristmasTreeImpl());
+        tree.draw(pane);
+
+        tree = new Girland(new ChristmasTreeImpl());
+        tree.draw(pane);
+
+        canvas.toFront();
+        momento.push(pane.getChildren().getLast());
+        lastShape.add("Ёлка с украшениями");
+        textLast.setText(lastShape.getLast());
     }
 
     public Effect setEffect() {
@@ -137,12 +158,15 @@ public class Controller implements Initializable {
     @FXML
     protected void onClickClear() {
         momento = new Momento();
+        pane.getChildren().clear();
         GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
         graphicsContext.setFill(null);
         graphicsContext.setEffect(null);
         graphicsContext.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
         textLast.setText("Ничего не нарисовано");
+        lastShape.clear();
         System.out.println("Очищено\n");
+        canvas.toFront();
     }
 
     public void drawShape(MouseEvent mouseEvent) {
@@ -162,22 +186,72 @@ public class Controller implements Initializable {
                 System.out.println("Введена строка в поле size");
             }
         }
+        if (choiceEffect.getValue().equals("Fade Transition"))
+            shape.draw(pane);
+        else
+            shape.draw(gc);
+        canvas.toFront();
         momento.push(shape);
-        for (Shape item : momento.getListShapes()) {
-            item.draw(gc);
-        }
-        textLast.setText(shapeName.get(shape.getClass()));
+        lastShape.add(shape.toString());
+        textLast.setText(lastShape.getLast());
     }
 
     public void undoLast() {
-        GraphicsContext gc = canvas.getGraphicsContext2D();
-        gc.setEffect(null);
-        gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
-        momento.poll();
-        for (Shape item : momento.getListShapes()) {
-            item.draw(gc);
-        }
-        if (momento.getSize() == 0)
+        if (momento.getSize() > 1) {
+            GraphicsContext gc = canvas.getGraphicsContext2D();
+            gc.setEffect(null);
+            gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+            pane.getChildren().clear();
+            lastShape.removeLast();
+            momento.poll();
+            for (Object item : momento.getListShapes()) {
+                if (item instanceof Pane) {
+                    pane.getChildren().add((Pane) item);
+                } else if (item instanceof Shape) {
+                    ((Shape) item).draw(gc);
+                }
+            }
+            textLast.setText(lastShape.getLast());
+        } else {
+            onClickClear();
             textLast.setText("Ничего не нарисовано");
+        }
+        canvas.toFront();
+    }
+
+    public void addLights(ActionEvent actionEvent) {
+        ChristmasTree tree = new Girland(new ChristmasTreeImpl());
+        tree.draw(pane);
+        momento.push(pane.getChildren().getLast());
+        lastShape.add("Гирлянда");
+        textLast.setText(lastShape.getLast());
+        canvas.toFront();
+    }
+
+    public void addPresents(ActionEvent actionEvent) {
+        ChristmasTree tree = new Presents(new ChristmasTreeImpl());
+        tree.draw(pane);
+        momento.push(pane.getChildren().getLast());
+        lastShape.add("Подарки");
+        textLast.setText(lastShape.getLast());
+        canvas.toFront();
+    }
+
+    public void addStar(ActionEvent actionEvent) {
+        ChristmasTree tree = new Star(new ChristmasTreeImpl());
+        tree.draw(pane);
+        momento.push(pane.getChildren().getLast());
+        lastShape.add("Звезда");
+        textLast.setText(lastShape.getLast());
+        canvas.toFront();
+    }
+
+    public void addTree(ActionEvent actionEvent) {
+        ChristmasTree tree = new ChristmasTreeImpl();
+        tree.draw(pane);
+        momento.push(pane.getChildren().getLast());
+        lastShape.add("Ёлка");
+        textLast.setText(lastShape.getLast());
+        canvas.toFront();
     }
 }

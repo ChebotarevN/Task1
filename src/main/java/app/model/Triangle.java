@@ -1,7 +1,13 @@
 package app.model;
 
+import javafx.animation.FadeTransition;
+import javafx.animation.Timeline;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Polygon;
+import javafx.scene.shape.TriangleMesh;
+import javafx.util.Duration;
 
 public class Triangle extends Shape {
     private double size;
@@ -37,6 +43,25 @@ public class Triangle extends Shape {
 
         gr.fillPolygon(getPointsX(), getPointsY(), 3);
         gr.strokePolygon(getPointsX(), getPointsY(), 3);
+    }
+
+    @Override
+    public void draw(Pane pane) {
+        Polygon polygon = new Polygon();
+        polygon.getPoints().addAll(x, y - size * Math.sqrt(3) / 4,
+                x - size / 2, y + size * Math.sqrt(3) / 4,
+                x + size / 2, y + size * Math.sqrt(3) / 4);
+        polygon.setFill(paint);
+        polygon.setStroke(colorStroke);
+        polygon.setStrokeWidth(2);
+
+        FadeTransition fadeTransition = new FadeTransition(Duration.millis(1000), polygon);
+        fadeTransition.setFromValue(1.0);
+        fadeTransition.setToValue(0.0);
+        fadeTransition.setCycleCount(Timeline.INDEFINITE);
+        fadeTransition.setAutoReverse(true);
+        fadeTransition.play();
+        pane.getChildren().addAll(polygon);
     }
 
     @Override

@@ -1,20 +1,22 @@
 package app.model;
 
+import javafx.scene.image.Image;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Queue;
 
 public class Momento {
 
-    private Queue<Shape> momentoList = new ArrayDeque<>();
+    private Queue<Object> momentoList = new ArrayDeque<>();
 
 
-    public void push(Shape state) {
+    public void push(Object state) {
 
         momentoList.add(state);
     }
 
-    public Shape poll() {
+    public Object poll() {
 
         return momentoList.poll();
 
@@ -24,12 +26,12 @@ public class Momento {
         return momentoList.size();
     }
 
-    public ArrayList<Shape> getListShapes() {
-        ArrayList<Shape> shapes = new ArrayList<>();
-        for (Shape item: momentoList){
-            shapes.add(item);
+    public ArrayList<Object> getListShapes() {
+        ArrayList<Object> objects = new ArrayList<>();
+        for (Object item: momentoList){
+            objects.add(item);
         }
-        return shapes;
+        return objects;
     }
 
 }

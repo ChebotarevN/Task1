@@ -2,6 +2,7 @@ package app.model;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.effect.Effect;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
@@ -25,6 +26,8 @@ public abstract class Shape implements Cloneable {
         this.x = x;
         this.y = y;
     }
+
+    public abstract void draw(Pane pane);
 
     public void setEffect(Effect effect) {
         this.effect = effect;

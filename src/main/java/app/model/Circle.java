@@ -1,14 +1,12 @@
 package app.model;
 
-import javafx.animation.Animation;
-import javafx.animation.AnimationTimer;
-import javafx.animation.FadeTransition;
-import javafx.animation.FillTransition;
+import javafx.animation.*;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.Effect;
 import javafx.scene.effect.ImageInput;
 import javafx.scene.image.Image;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
@@ -26,6 +24,21 @@ public class Circle extends Shape {
     @Override
     public double area() {
         return Math.PI * radius * radius;
+    }
+
+    @Override
+    public void draw(Pane pane) {
+        javafx.scene.shape.Circle circle = new javafx.scene.shape.Circle(x, y, radius);
+        circle.setStroke(colorStroke);
+        circle.setFill(paint);
+
+        FadeTransition fadeTransition = new FadeTransition(Duration.millis(1000), circle);
+        fadeTransition.setFromValue(1.0);
+        fadeTransition.setToValue(0.0);
+        fadeTransition.setCycleCount(Timeline.INDEFINITE);
+        fadeTransition.setAutoReverse(true);
+        fadeTransition.play();
+        pane.getChildren().addAll(circle);
     }
 
     @Override
