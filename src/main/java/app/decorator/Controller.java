@@ -7,7 +7,6 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
@@ -61,20 +60,14 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Rectangle rectangle = new Rectangle(Color.BLACK, Color.BLACK, 5, 5, 15);
-        Circle circle = new Circle(Color.BLACK, Color.BLACK, 5, 5, 15);
-        Triangle triangle = new Triangle(Color.BLACK, Color.BLACK, 5, 5, 2);
-        Angle angle = new Angle(Color.BLACK, Color.BLACK, 5, 5, 2);
-        Pentagon pentagon = new Pentagon(Color.BLACK, Color.BLACK, 5, 5, 2);
-        Straight straight = new Straight(Color.BLACK, Color.BLACK, 5, 5, 2);
-        items = FXCollections.observableArrayList(circle, straight, angle, triangle, rectangle, pentagon);
+        ShapeFactory shapeFactory = new ShapeFactory();
+        items = FXCollections.observableArrayList(shapeFactory.createShape(0), shapeFactory.createShape(1), shapeFactory.createShape(2),
+                shapeFactory.createShape(3), shapeFactory.createShape(4), shapeFactory.createShape(5));
         listView.setItems(items);
         listFill = FXCollections.observableArrayList("Цвет", "Линейный градиент", "Радиальный градиент", "Изображение");
         choiceFill.setItems(listFill);
         choiceFill.setValue("Цвет");
-        choiceFill.getSelectionModel().selectedIndexProperty().addListener((observableValue, o, t1) -> {
-            changeFill(t1.intValue());
-        });
+        choiceFill.getSelectionModel().selectedIndexProperty().addListener((_, _, t1) -> changeFill(t1.intValue()));
         listEffect = FXCollections.observableArrayList("Non effect", "Inner Shadow", "Blur", "Drop Shadow", "Fade Transition");
         choiceEffect.setItems(listEffect);
         choiceEffect.setValue("Non effect");
