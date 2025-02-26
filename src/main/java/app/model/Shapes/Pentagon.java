@@ -1,15 +1,17 @@
-package app.model;
+package app.model.Shapes;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.Timeline;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Polygon;
 import javafx.util.Duration;
 
 public class Pentagon extends Shape {
     private double size;
+    private double[] xPoints, yPoints;
 
     public Pentagon(Color color, Color colorStroke, double x, double y, double size) {
         super(color, colorStroke, x, y);
@@ -18,17 +20,15 @@ public class Pentagon extends Shape {
 
     @Override
     public void draw(GraphicsContext gr) {
-        gr.setFill(paint);
         gr.setStroke(colorStroke);
         gr.setLineWidth(2);
-        gr.setEffect(effect);
 
         // Количество вершин пятиугольника
         int sides = 5;
 
         // Координаты вершин пятиугольника
-        double[] xPoints = new double[sides];
-        double[] yPoints = new double[sides];
+        xPoints = new double[sides];
+        yPoints = new double[sides];
 
         // Угол между соседними вершинами
         double angleStep = 2 * Math.PI / sides;
@@ -49,7 +49,7 @@ public class Pentagon extends Shape {
     }
 
     @Override
-    public void draw(Pane pane) {
+    public void draw(Pane pane, Paint paint) {
         Polygon polygon = new Polygon();
         polygon.setFill(paint);
         polygon.setStroke(colorStroke);
@@ -59,8 +59,8 @@ public class Pentagon extends Shape {
         int sides = 5;
 
         // Координаты вершин пятиугольника
-        double[] xPoints = new double[sides];
-        double[] yPoints = new double[sides];
+        xPoints = new double[sides];
+        yPoints = new double[sides];
 
         // Угол между соседними вершинами
         double angleStep = 2 * Math.PI / sides;
@@ -108,7 +108,7 @@ public class Pentagon extends Shape {
 
     @Override
     public double[] getSize() {
-        return new double[]{size, size};
+        return new double[]{xPoints[1] - xPoints[4], yPoints[2] - yPoints[0]};
     }
 
     @Override

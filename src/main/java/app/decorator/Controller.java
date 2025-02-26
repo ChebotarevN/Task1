@@ -2,6 +2,11 @@ package app.decorator;
 
 import app.christmass.*;
 import app.model.*;
+import app.model.Addons.Addon;
+import app.model.Addons.Split;
+import app.model.Addons.Stipple;
+import app.model.Shapes.Shape;
+import app.model.Shapes.ShapeFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -11,7 +16,6 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.effect.*;
-import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -19,6 +23,7 @@ import javafx.scene.paint.*;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -30,16 +35,10 @@ public class Controller implements Initializable {
     ColorPicker colorPicker, colorPicker1, colorPickerStroke;
 
     @FXML
-    TextField fieldX, fieldY;
-
-    @FXML
     TextField fieldSize;
 
     @FXML
-    TextField fieldNum, numberSide;
-
-    @FXML
-    ChoiceBox choiceFill, choiceEffect;
+    ChoiceBox choiceFill, choiceEffect, choiceAddon;
 
     @FXML
     Label textLast;
@@ -52,9 +51,13 @@ public class Controller implements Initializable {
     @FXML
     Pane pane;
 
+    @FXML
+    ToggleButton toggleSplit, toggleStipple;
+
     private ObservableList<Shape> items;
     private ObservableList<String> listFill;
     private ObservableList<String> listEffect;
+    private ObservableList<String> listAddon;
     private ArrayList<String> lastShape = new ArrayList<>();
     private Momento momento = new Momento();
 
@@ -94,47 +97,13 @@ public class Controller implements Initializable {
     }
 
     public Effect setEffect() {
-        String effect = (String) choiceEffect.getValue();
-        switch (effect) {
-            case "Inner Shadow":
-                InnerShadow innerShadow = new InnerShadow();
-                innerShadow.setOffsetX(2.0f);
-                innerShadow.setOffsetY(2.0f);
-                return innerShadow;
-            case "Blur":
-                BoxBlur blur = new BoxBlur();
-                blur.setWidth(5);
-                blur.setHeight(5);
-                blur.setIterations(3);
-                return blur;
-            case "Drop Shadow":
-                DropShadow dropShadow = new DropShadow();
-                dropShadow.setOffsetX(4.0f);
-                dropShadow.setOffsetY(4.0f);
-                dropShadow.setColor(Color.BLACK);
-                return dropShadow;
-            default:
-                return null;
-        }
+        EffectShape effectShape = new EffectShape();
+        return effectShape.getEffect(choiceEffect.getItems().indexOf(choiceEffect.getValue()));
     }
 
-    public Paint setFill() {
-        String fill = (String) choiceFill.getValue();
-        return switch (fill) {
-            case "Цвет" -> colorPicker.getValue();
-            case "Линейный градиент" ->
-                    new LinearGradient(0, 0, 1, 0, true, CycleMethod.NO_CYCLE, new Stop(0, colorPicker.getValue()), new Stop(1, colorPicker1.getValue()));
-            case "Радиальный градиент" -> new RadialGradient(0,                  // Focus angle
-                    0.5,                // Focus distance
-                    100, 100,           // Center coordinates
-                    100,                // Radius
-                    true,               // Proportional
-                    CycleMethod.NO_CYCLE, // Cycle method
-                    new Stop(0, colorPicker.getValue()),
-                    new Stop(0.5, colorPicker1.getValue()));
-            case "Изображение" -> new ImagePattern(new Image("file:src/main/resources/app/img1.jpg"));
-            default -> null;
-        };
+    public Paint setFill(double x, double y) {
+        FillShape fillShape = new FillShape(colorPicker.getValue(), colorPicker1.getValue(), x, y);
+        return fillShape.getFill(choiceFill.getItems().indexOf(choiceFill.getValue()));
     }
 
     public void changeFill(int num) {
@@ -164,13 +133,12 @@ public class Controller implements Initializable {
 
     public void drawShape(MouseEvent mouseEvent) {
         GraphicsContext gc = canvas.getGraphicsContext2D();
+
         int index = listView.getSelectionModel().getSelectedIndex(); //получение индекса выбора из списка
         Shape shape = (Shape) items.get(index).clone(); // создание копии фигуры
         shape.setColor(colorPicker.getValue()); // установка цвета заполнения фигуры по значению элемента управления colorPicker
         shape.setColorStroke(colorPickerStroke.getValue());
         shape.setXY(mouseEvent.getX(), mouseEvent.getY());
-        shape.setPaint(setFill());
-        shape.setEffect(setEffect());
         if (!fieldSize.getText().isEmpty()) {
             try {
                 double size = Double.parseDouble(fieldSize.getText());
@@ -179,12 +147,22 @@ public class Controller implements Initializable {
                 System.out.println("Введена строка в поле size");
             }
         }
+
+        Decorate decorate = new Decorate(shape, setFill(mouseEvent.getX(), mouseEvent.getY()), setEffect());
+        List<Addon> addons = new ArrayList<>();
+        if (toggleSplit.isSelected()) {
+            addons.add(new Split(decorate));
+        }
+        if (toggleStipple.isSelected()) {
+            addons.add(new Stipple((decorate)));
+        }
+        decorate.setAddons(addons);
         if (choiceEffect.getValue().equals("Fade Transition"))
-            shape.draw(pane);
+            decorate.draw(pane);
         else
-            shape.draw(gc);
+            decorate.draw(gc);
         canvas.toFront();
-        momento.push(shape);
+        momento.push(decorate);
         lastShape.add(shape.toString());
         textLast.setText(lastShape.getLast());
     }
@@ -200,8 +178,8 @@ public class Controller implements Initializable {
             for (Object item : momento.getListShapes()) {
                 if (item instanceof Pane) {
                     pane.getChildren().add((Pane) item);
-                } else if (item instanceof Shape) {
-                    ((Shape) item).draw(gc);
+                } else if (item instanceof Decorate) {
+                    ((Decorate) item).draw(gc);
                 }
             }
             textLast.setText(lastShape.getLast());
@@ -210,6 +188,10 @@ public class Controller implements Initializable {
             textLast.setText("Ничего не нарисовано");
         }
         canvas.toFront();
+    }
+
+    public void splitShape(Decorate decorate) {
+        Split split = new Split(decorate);
     }
 
     public void addLights(ActionEvent actionEvent) {

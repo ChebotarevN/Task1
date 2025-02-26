@@ -1,12 +1,12 @@
-package app.model;
+package app.model.Shapes;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.Timeline;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Polygon;
-import javafx.scene.shape.TriangleMesh;
 import javafx.util.Duration;
 
 public class Triangle extends Shape {
@@ -36,17 +36,15 @@ public class Triangle extends Shape {
 
     @Override
     public void draw(GraphicsContext gr) {
-        gr.setFill(paint);
         gr.setStroke(colorStroke);
         gr.setLineWidth(2);
-        gr.setEffect(effect);
 
         gr.fillPolygon(getPointsX(), getPointsY(), 3);
         gr.strokePolygon(getPointsX(), getPointsY(), 3);
     }
 
     @Override
-    public void draw(Pane pane) {
+    public void draw(Pane pane, Paint paint) {
         Polygon polygon = new Polygon();
         polygon.getPoints().addAll(x, y - size * Math.sqrt(3) / 4,
                 x - size / 2, y + size * Math.sqrt(3) / 4,
@@ -94,7 +92,7 @@ public class Triangle extends Shape {
 
     @Override
     public double[] getSize() {
-        return new double[]{size * 35, size * 30};
+        return new double[]{size * Math.sqrt(3) / 4, size * Math.sqrt(3) / 2};
     }
 
     @Override

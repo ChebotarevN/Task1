@@ -1,18 +1,15 @@
-package app.model;
+package app.model.Shapes;
 
 import javafx.animation.*;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.effect.DropShadow;
-import javafx.scene.effect.Effect;
-import javafx.scene.effect.ImageInput;
-import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.util.Duration;
 
 public class Circle extends Shape {
-    private double diametr;
-    double radius;
+    protected double diametr;
+    protected double radius;
 
 
     public Circle(Color color, Color colorStroke, double x, double y, double diametr) {
@@ -27,7 +24,7 @@ public class Circle extends Shape {
     }
 
     @Override
-    public void draw(Pane pane) {
+    public void draw(Pane pane, Paint paint) {
         javafx.scene.shape.Circle circle = new javafx.scene.shape.Circle(x, y, radius);
         circle.setStroke(colorStroke);
         circle.setFill(paint);
@@ -44,8 +41,6 @@ public class Circle extends Shape {
     @Override
     public void draw(GraphicsContext gr) {
         gr.setStroke(colorStroke);
-        gr.setFill(paint);
-        gr.setEffect(effect);
         gr.fillOval(x - radius, y - radius, diametr, diametr);
         gr.strokeOval(x - radius, y - radius, diametr, diametr);
     }
@@ -65,4 +60,5 @@ public class Circle extends Shape {
         radius = size / 2;
         return diametr = size;
     }
+
 }

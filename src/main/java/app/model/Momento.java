@@ -1,7 +1,5 @@
 package app.model;
 
-import javafx.scene.image.Image;
-
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Queue;

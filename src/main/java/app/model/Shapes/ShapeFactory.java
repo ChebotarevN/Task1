@@ -1,4 +1,4 @@
-package app.model;
+package app.model.Shapes;
 
 import javafx.scene.paint.Color;
 
@@ -19,15 +19,6 @@ public class ShapeFactory {
 
     public Shape createShape(int index) {
         Shape shape = shapes.get(index);
-        return shape;
-    }
-
-    public Shape createShape(int index, Color color, Color colorStroke, double x, double y, double size) {
-        Shape shape = shapes.get(index);
-        shape.setColor(color);
-        shape.setColorStroke(colorStroke);
-        shape.setXY(x, y);
-        shape.setSize(size);
         return shape;
     }
 }

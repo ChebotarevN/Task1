@@ -1,7 +1,6 @@
-package app.model;
+package app.model.Shapes;
 
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.effect.Effect;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
@@ -10,8 +9,6 @@ public abstract class Shape implements Cloneable {
     //параметры фигуры - приватные поля
     protected Color color, colorStroke;
     protected double x, y;
-    protected Paint paint;
-    protected Effect effect;
 
     // объявление абстрактных методов
     public abstract double area();
@@ -20,26 +17,17 @@ public abstract class Shape implements Cloneable {
 
     // конструктор
     public Shape(Color color, Color colorStroke, double x, double y) {
-        //System.out.println("Shape constructor called");
         this.color = color;
         this.colorStroke = colorStroke;
         this.x = x;
         this.y = y;
     }
 
-    public abstract void draw(Pane pane);
-
-    public void setEffect(Effect effect) {
-        this.effect = effect;
-    }
+    public abstract void draw(Pane pane, Paint paint);
 
     // реализация методов
     public void setColor(Color color) {
         this.color = color;
-    }
-
-    public void setPaint(Paint paint) {
-        this.paint = paint;
     }
 
     public void setColorStroke(Color colorStroke) {
@@ -64,4 +52,12 @@ public abstract class Shape implements Cloneable {
     public abstract double[] getSize();
 
     public abstract double setSize(double size);
+
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
 }

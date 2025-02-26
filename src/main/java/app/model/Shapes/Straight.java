@@ -1,10 +1,11 @@
-package app.model;
+package app.model.Shapes;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.Timeline;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Polygon;
 import javafx.util.Duration;
 
@@ -23,14 +24,12 @@ public class Straight extends Shape {
 
     @Override
     public void draw(GraphicsContext gr) {
-        gr.setStroke(paint);
         gr.setLineWidth(2);
-        gr.setEffect(effect);
         gr.strokePolygon(new double[]{x - size * 25, x + size * 25}, new double[]{y, y}, 2);
     }
 
     @Override
-    public void draw(Pane pane) {
+    public void draw(Pane pane, Paint paint) {
         Polygon polygon = new Polygon();
         polygon.setStroke(colorStroke);
         polygon.setStrokeWidth(2);

@@ -1,10 +1,11 @@
-package app.model;
+package app.model.Shapes;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.Timeline;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Line;
 import javafx.util.Duration;
 
@@ -24,14 +25,12 @@ public class Angle extends Shape {
     @Override
     public void draw(GraphicsContext gr) {
         gr.setLineWidth(2);
-        gr.setStroke(paint);
-        gr.setEffect(effect);
         gr.strokeLine(x - (size * 25), y + (size * 25), x + size * 25, y + (size * 25));
         gr.strokeLine(x - (size * 25), y - (size * 25), x - (size * 25), y + (size * 25));
     }
 
     @Override
-    public void draw(Pane pane) {
+    public void draw(Pane pane, Paint paint) {
         Line line1 = new Line(x - (size * 25), y + (size * 25), x + size * 25, y + (size * 25));
         Line line2 = new Line(x - (size * 25), y - (size * 25), x - (size * 25), y + (size * 25));
         line1.setStrokeWidth(2);
