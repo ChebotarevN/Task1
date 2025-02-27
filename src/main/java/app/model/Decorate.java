@@ -27,10 +27,6 @@ public class Decorate {
         this.paint = paint;
     }
 
-    public void setEffect(Effect effect) {
-        this.effect = effect;
-    }
-
     public void draw(GraphicsContext gr) {
         gr.setFill(paint);
         gr.setEffect(effect);

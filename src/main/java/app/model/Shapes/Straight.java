@@ -24,6 +24,7 @@ public class Straight extends Shape {
 
     @Override
     public void draw(GraphicsContext gr) {
+        gr.setStroke(colorStroke);
         gr.setLineWidth(2);
         gr.strokePolygon(new double[]{x - size * 25, x + size * 25}, new double[]{y, y}, 2);
     }

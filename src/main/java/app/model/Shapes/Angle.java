@@ -24,6 +24,7 @@ public class Angle extends Shape {
 
     @Override
     public void draw(GraphicsContext gr) {
+        gr.setStroke(colorStroke);
         gr.setLineWidth(2);
         gr.strokeLine(x - (size * 25), y + (size * 25), x + size * 25, y + (size * 25));
         gr.strokeLine(x - (size * 25), y - (size * 25), x - (size * 25), y + (size * 25));

@@ -10,14 +10,11 @@ public class Momento {
 
 
     public void push(Object state) {
-
         momentoList.add(state);
     }
 
     public Object poll() {
-
         return momentoList.poll();
-
     }
 
     public int getSize() {

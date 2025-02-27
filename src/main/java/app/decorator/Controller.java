@@ -1,6 +1,5 @@
 package app.decorator;
 
-import app.christmass.*;
 import app.model.*;
 import app.model.Addons.Addon;
 import app.model.Addons.Split;
@@ -9,7 +8,6 @@ import app.model.Shapes.Shape;
 import app.model.Shapes.ShapeFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
@@ -38,7 +36,7 @@ public class Controller implements Initializable {
     TextField fieldSize;
 
     @FXML
-    ChoiceBox choiceFill, choiceEffect, choiceAddon;
+    ChoiceBox choiceFill, choiceEffect;
 
     @FXML
     Label textLast;
@@ -56,8 +54,8 @@ public class Controller implements Initializable {
 
     private ObservableList<Shape> items;
     private ObservableList<String> listFill;
-    private ObservableList<String> listEffect;
-    private ObservableList<String> listAddon;
+    //private ObservableList<String> listEffect;
+    private ObservableList<EffectEnum> listEffect;
     private ArrayList<String> lastShape = new ArrayList<>();
     private Momento momento = new Momento();
 
@@ -69,36 +67,16 @@ public class Controller implements Initializable {
         listView.setItems(items);
         listFill = FXCollections.observableArrayList("Цвет", "Линейный градиент", "Радиальный градиент", "Изображение");
         choiceFill.setItems(listFill);
-        choiceFill.setValue("Цвет");
+        choiceFill.setValue(listFill.getFirst());
         choiceFill.getSelectionModel().selectedIndexProperty().addListener((_, _, t1) -> changeFill(t1.intValue()));
-        listEffect = FXCollections.observableArrayList("Non effect", "Inner Shadow", "Blur", "Drop Shadow", "Fade Transition");
+        listEffect = FXCollections.observableArrayList(EffectEnum.NONE, EffectEnum.INNER_SHADOW, EffectEnum.BLUR, EffectEnum.DROP_SHADOW, EffectEnum.FADE);
         choiceEffect.setItems(listEffect);
-        choiceEffect.setValue("Non effect");
-    }
-
-    @FXML
-    public void treeButton() {
-        ChristmasTree tree = new ChristmasTreeImpl();
-        tree.draw(pane);
-
-        tree = new Presents(new ChristmasTreeImpl());
-        tree.draw(pane);
-
-        tree = new Star(new ChristmasTreeImpl());
-        tree.draw(pane);
-
-        tree = new Girland(new ChristmasTreeImpl());
-        tree.draw(pane);
-
-        canvas.toFront();
-        momento.push(pane.getChildren().getLast());
-        lastShape.add("Ёлка с украшениями");
-        textLast.setText(lastShape.getLast());
+        choiceEffect.setValue(listEffect.getFirst());
     }
 
     public Effect setEffect() {
         EffectShape effectShape = new EffectShape();
-        return effectShape.getEffect(choiceEffect.getItems().indexOf(choiceEffect.getValue()));
+        return effectShape.getEffect((EffectEnum) choiceEffect.getValue());
     }
 
     public Paint setFill(double x, double y) {
@@ -150,14 +128,14 @@ public class Controller implements Initializable {
 
         Decorate decorate = new Decorate(shape, setFill(mouseEvent.getX(), mouseEvent.getY()), setEffect());
         List<Addon> addons = new ArrayList<>();
-        if (toggleSplit.isSelected()) {
-            addons.add(new Split(decorate));
-        }
         if (toggleStipple.isSelected()) {
             addons.add(new Stipple((decorate)));
         }
+        if (toggleSplit.isSelected()) {
+            addons.add(new Split(decorate));
+        }
         decorate.setAddons(addons);
-        if (choiceEffect.getValue().equals("Fade Transition"))
+        if (choiceEffect.getValue().equals(EffectEnum.FADE))
             decorate.draw(pane);
         else
             decorate.draw(gc);
@@ -187,46 +165,6 @@ public class Controller implements Initializable {
             onClickClear();
             textLast.setText("Ничего не нарисовано");
         }
-        canvas.toFront();
-    }
-
-    public void splitShape(Decorate decorate) {
-        Split split = new Split(decorate);
-    }
-
-    public void addLights(ActionEvent actionEvent) {
-        ChristmasTree tree = new Girland(new ChristmasTreeImpl());
-        tree.draw(pane);
-        momento.push(pane.getChildren().getLast());
-        lastShape.add("Гирлянда");
-        textLast.setText(lastShape.getLast());
-        canvas.toFront();
-    }
-
-    public void addPresents(ActionEvent actionEvent) {
-        ChristmasTree tree = new Presents(new ChristmasTreeImpl());
-        tree.draw(pane);
-        momento.push(pane.getChildren().getLast());
-        lastShape.add("Подарки");
-        textLast.setText(lastShape.getLast());
-        canvas.toFront();
-    }
-
-    public void addStar(ActionEvent actionEvent) {
-        ChristmasTree tree = new Star(new ChristmasTreeImpl());
-        tree.draw(pane);
-        momento.push(pane.getChildren().getLast());
-        lastShape.add("Звезда");
-        textLast.setText(lastShape.getLast());
-        canvas.toFront();
-    }
-
-    public void addTree(ActionEvent actionEvent) {
-        ChristmasTree tree = new ChristmasTreeImpl();
-        tree.draw(pane);
-        momento.push(pane.getChildren().getLast());
-        lastShape.add("Ёлка");
-        textLast.setText(lastShape.getLast());
         canvas.toFront();
     }
 }
