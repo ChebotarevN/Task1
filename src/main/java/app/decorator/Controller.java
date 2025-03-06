@@ -54,7 +54,6 @@ public class Controller implements Initializable {
 
     private ObservableList<Shape> items;
     private ObservableList<String> listFill;
-    //private ObservableList<String> listEffect;
     private ObservableList<EffectEnum> listEffect;
     private ArrayList<String> lastShape = new ArrayList<>();
     private Momento momento = new Momento();
@@ -111,7 +110,6 @@ public class Controller implements Initializable {
 
     public void drawShape(MouseEvent mouseEvent) {
         GraphicsContext gc = canvas.getGraphicsContext2D();
-
         int index = listView.getSelectionModel().getSelectedIndex(); //получение индекса выбора из списка
         Shape shape = (Shape) items.get(index).clone(); // создание копии фигуры
         shape.setColor(colorPicker.getValue()); // установка цвета заполнения фигуры по значению элемента управления colorPicker

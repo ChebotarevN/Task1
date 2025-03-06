@@ -17,6 +17,10 @@ public class Momento {
         return momentoList.poll();
     }
 
+    public boolean remove(Object state) {
+        return momentoList.remove(state);
+    }
+
     public int getSize() {
         return momentoList.size();
     }
