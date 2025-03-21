@@ -140,6 +140,7 @@
                      </padding>
                      <children>
                         <ChoiceBox fx:id="choiceWorkMode" prefWidth="150.0" />
+                        <Button mnemonicParsing="false" onAction="#deleteSelectedShape" text="Удалить выделенные элементы" />
                      </children>
                   </HBox>
                   </children>

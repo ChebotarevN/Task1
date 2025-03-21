@@ -224,4 +224,14 @@ public class Controller implements Initializable {
         composite.changeXY(mouseEvent.getX() - startX, mouseEvent.getY() - startY);
         momentoDraw(canvas.getGraphicsContext2D());
     }
+
+    @FXML
+    protected void deleteSelectedShape() {
+        ArrayList<Decorate> arrayList = composite.getArray();
+        for (Decorate decorate : arrayList) {
+            momento.remove(decorate);
+        }
+        clearBox();
+        momentoDraw(canvas.getGraphicsContext2D());
+    }
 }

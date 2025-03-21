@@ -1,7 +1,6 @@
 package app.linker;
 
 import app.model.Decorate;
-import app.model.Momento;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
@@ -10,7 +9,6 @@ import java.util.ArrayList;
 
 public class Composite {
     private ArrayList<Component> array = new ArrayList<>();// агрегатор элементарных объектов
-    private ArrayList<double[]> arrayXY = new ArrayList<>();
 
 
     public Composite() {
@@ -34,6 +32,7 @@ public class Composite {
         }
         array.clear();
     }
+
     public void saveCoord() {
         for (Component component : array) {
             component.xy = new double[]{component.getDecorate().getShape().getX(), component.getDecorate().getShape().getY()};
@@ -44,5 +43,13 @@ public class Composite {
         for (Component comp : array) {
             comp.decorate.getShape().setXY((x + comp.xy[0]), (y + comp.xy[1]));
         }
+    }
+
+    public ArrayList<Decorate> getArray() {
+        ArrayList<Decorate> result = new ArrayList<>();
+        for (Component component : array) {
+            result.add(component.getDecorate());
+        }
+        return result;
     }
 }
