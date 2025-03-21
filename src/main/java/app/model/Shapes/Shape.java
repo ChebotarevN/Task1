@@ -60,4 +60,10 @@ public abstract class Shape implements Cloneable {
     public double getY() {
         return y;
     }
+
+    public Color getColorStroke() {
+        return colorStroke;
+    }
+
+    public abstract boolean contains(double clickX, double clickY);
 }

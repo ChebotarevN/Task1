@@ -1,5 +1,7 @@
 package app.decorator;
 
+import app.linker.Component;
+import app.linker.Composite;
 import app.model.*;
 import app.model.Addons.Addon;
 import app.model.Addons.Split;
@@ -36,7 +38,7 @@ public class Controller implements Initializable {
     TextField fieldSize;
 
     @FXML
-    ChoiceBox choiceFill, choiceEffect;
+    ChoiceBox choiceFill, choiceEffect, choiceWorkMode;
 
     @FXML
     Label textLast;
@@ -55,8 +57,11 @@ public class Controller implements Initializable {
     private ObservableList<Shape> items;
     private ObservableList<String> listFill;
     private ObservableList<EffectEnum> listEffect;
+    private ObservableList<String> listWorkMode;
     private ArrayList<String> lastShape = new ArrayList<>();
     private Momento momento = new Momento();
+    private Composite composite = new Composite();
+    private double startX, startY;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -71,6 +76,10 @@ public class Controller implements Initializable {
         listEffect = FXCollections.observableArrayList(EffectEnum.NONE, EffectEnum.INNER_SHADOW, EffectEnum.BLUR, EffectEnum.DROP_SHADOW, EffectEnum.FADE);
         choiceEffect.setItems(listEffect);
         choiceEffect.setValue(listEffect.getFirst());
+        listWorkMode = FXCollections.observableArrayList("Рисование", "Выделение", "Перемещение");
+        choiceWorkMode.setItems(listWorkMode);
+        choiceWorkMode.setValue(listWorkMode.getFirst());
+        choiceWorkMode.getSelectionModel().selectedIndexProperty().addListener((_, _, t1) -> setWorkMode(t1.intValue()));
     }
 
     public Effect setEffect() {
@@ -94,18 +103,39 @@ public class Controller implements Initializable {
         }
     }
 
+    public void setWorkMode(int num) {
+        String choice = listWorkMode.get(num);
+        if (choice.equals("Рисование")) {
+            composite.remove();
+            clearBox();
+            momentoDraw(canvas.getGraphicsContext2D());
+            canvas.setOnMouseDragged(this::drawShape);
+            canvas.setOnMousePressed(this::drawShape);
+        } else if (choice.equals("Выделение")) {
+            canvas.setOnMouseDragged(null);
+            canvas.setOnMousePressed(this::selectShape);
+        } else {
+            canvas.setOnMouseDragged(this::dragMoveSelectedShape);
+            canvas.setOnMousePressed(this::startMoveSelectedShape);
+        }
+    }
+
     @FXML
     protected void onClickClear() {
         momento = new Momento();
         pane.getChildren().clear();
-        GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
-        graphicsContext.setFill(null);
-        graphicsContext.setEffect(null);
-        graphicsContext.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+        clearBox();
         textLast.setText("Ничего не нарисовано");
         lastShape.clear();
         System.out.println("Очищено\n");
         canvas.toFront();
+    }
+
+    private void clearBox() {
+        GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
+        graphicsContext.setFill(null);
+        graphicsContext.setEffect(null);
+        graphicsContext.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
     }
 
     public void drawShape(MouseEvent mouseEvent) {
@@ -151,18 +181,47 @@ public class Controller implements Initializable {
             pane.getChildren().clear();
             lastShape.removeLast();
             momento.poll();
-            for (Object item : momento.getListShapes()) {
-                if (item instanceof Pane) {
-                    pane.getChildren().add((Pane) item);
-                } else if (item instanceof Decorate) {
-                    ((Decorate) item).draw(gc);
-                }
-            }
+            momentoDraw(gc);
             textLast.setText(lastShape.getLast());
         } else {
             onClickClear();
             textLast.setText("Ничего не нарисовано");
         }
         canvas.toFront();
+    }
+
+    private void momentoDraw(GraphicsContext gc) {
+        for (Object item : momento.getListShapes()) {
+            if (item instanceof Pane) {
+                pane.getChildren().add((Pane) item);
+            } else if (item instanceof Decorate) {
+                ((Decorate) item).draw(gc);
+            }
+        }
+    }
+
+    public void selectShape(MouseEvent mouseEvent) {
+        Decorate decorate = null;
+        for (Object item : momento.getListShapes()) {
+            if (((Decorate) item).getShape().contains(mouseEvent.getX(), mouseEvent.getY())) {
+                decorate = (Decorate) item;
+            }
+        }
+        if (decorate != null) {
+            composite.add(decorate, canvas.getGraphicsContext2D());
+            momentoDraw(canvas.getGraphicsContext2D());
+        }
+    }
+
+    public void startMoveSelectedShape(MouseEvent mouseEvent) {
+        startX = mouseEvent.getX();
+        startY = mouseEvent.getY();
+        composite.saveCoord();
+    }
+
+    public void dragMoveSelectedShape(MouseEvent mouseEvent) {
+        clearBox();
+        composite.changeXY(mouseEvent.getX() - startX, mouseEvent.getY() - startY);
+        momentoDraw(canvas.getGraphicsContext2D());
     }
 }

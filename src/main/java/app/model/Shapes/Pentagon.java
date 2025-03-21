@@ -115,4 +115,26 @@ public class Pentagon extends Shape {
     public double setSize(double size) {
         return this.size = size;
     }
+
+    public boolean contains(double clickX, double clickY) {
+        int intersectCount = 0;
+        for (int i = 0; i < xPoints.length; i++) {
+            double x1 = xPoints[i];
+            double y1 = yPoints[i];
+            double x2 = xPoints[(i + 1) % xPoints.length];
+            double y2 = yPoints[(i + 1) % yPoints.length];
+
+            if (clickY > Math.min(y1, y2)) {
+                if (clickY <= Math.max(y1, y2)) {
+                    if (clickX <= Math.max(x1, x2)) {
+                        double xIntersect = (clickY - y1) * (x2 - x1) / (y2 - y1) + x1;
+                        if (y1 == y2 || clickX <= xIntersect) {
+                            intersectCount++;
+                        }
+                    }
+                }
+            }
+        }
+        return intersectCount % 2 != 0;
+    }
 }

@@ -19,7 +19,7 @@ public class Triangle extends Shape {
     }
 
     public double[] getPointsX() {
-        return  new double[]{
+        return new double[]{
                 x, // верхняя вершина
                 x - size / 2, // левая нижняя вершина
                 x + size / 2  // правая нижняя вершина
@@ -27,7 +27,7 @@ public class Triangle extends Shape {
     }
 
     public double[] getPointsY() {
-        return  new double[]{
+        return new double[]{
                 y - size * Math.sqrt(3) / 4, // верхняя вершина (высота треугольника)
                 y + size * Math.sqrt(3) / 4, // левая нижняя вершина
                 y + size * Math.sqrt(3) / 4  // правая нижняя вершина
@@ -98,5 +98,29 @@ public class Triangle extends Shape {
     @Override
     public double setSize(double size) {
         return this.size = size;
+    }
+
+    public boolean contains(double clickX, double clickY) {
+        double[] xPoints = getPointsX();
+        double[] yPoints = getPointsY();
+
+        // Получаем координаты вершин треугольника
+        double x1 = xPoints[0], y1 = yPoints[0];
+        double x2 = xPoints[1], y2 = yPoints[1];
+        double x3 = xPoints[2], y3 = yPoints[2];
+
+        // Вычисляем площади треугольников, образованных точкой и вершинами
+        double A = area(x1, y1, x2, y2, x3, y3); // Площадь основного треугольника
+        double A1 = area(clickX, clickY, x2, y2, x3, y3); // Площадь треугольника 1
+        double A2 = area(x1, y1, clickX, clickY, x3, y3); // Площадь треугольника 2
+        double A3 = area(x1, y1, x2, y2, clickX, clickY); // Площадь треугольника 3
+
+        // Если сумма площадей A1, A2, A3 равна площади A, точка внутри треугольника
+        return Math.abs(A - (A1 + A2 + A3)) < 0.0001;
+    }
+
+    // Метод для вычисления площади треугольника по координатам вершин
+    private double area(double x1, double y1, double x2, double y2, double x3, double y3) {
+        return Math.abs((x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)) / 2.0);
     }
 }

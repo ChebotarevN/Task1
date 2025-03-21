@@ -61,4 +61,8 @@ public class Circle extends Shape {
         return diametr = size;
     }
 
+    public boolean contains(double clickX, double clickY) {
+        double distanceSquared = Math.pow(clickX - x, 2) + Math.pow(clickY - y, 2);
+        return distanceSquared <= Math.pow(radius, 2);
+    }
 }

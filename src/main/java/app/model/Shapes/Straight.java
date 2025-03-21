@@ -60,4 +60,18 @@ public class Straight extends Shape {
     public double setSize(double size) {
         return this.size = size;
     }
+
+    public boolean contains(double clickX, double clickY) {
+        double tolerance = 2.0;
+        double minX = Math.min(x - size * 25, x + size * 25);
+        double maxX = Math.max(x - size * 25, x + size * 25);
+        double minY = y;
+        double maxY = y;
+
+        if (clickX >= minX - tolerance && clickX <= maxX + tolerance &&
+                clickY >= minY - tolerance && clickY <= maxY + tolerance) {
+            return true;
+        }
+        return false;
+    }
 }

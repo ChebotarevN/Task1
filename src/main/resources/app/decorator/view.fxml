@@ -134,13 +134,21 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <children>
+                        <ChoiceBox fx:id="choiceWorkMode" prefWidth="150.0" />
+                     </children>
+                  </HBox>
                   </children>
             </VBox>
          </children>
          <HBox.margin>
             <Insets bottom="15.0" left="15.0" top="15.0" />
          </HBox.margin></FlowPane>
-      <AnchorPane fx:id="pane" prefHeight="200.0" prefWidth="200.0" style="-fx-border-width: 3; -fx-border-style: solid;">
+      <AnchorPane fx:id="anchorPane" prefHeight="200.0" prefWidth="200.0" style="-fx-border-width: 3; -fx-border-style: solid;">
          <children>
             <Canvas fx:id="canvas" height="710.0" onMouseDragged="#drawShape" onMousePressed="#drawShape" style="-fx-border-width: 3;" width="500.0" />
             <Pane fx:id="pane" prefHeight="200.0" prefWidth="200.0" />

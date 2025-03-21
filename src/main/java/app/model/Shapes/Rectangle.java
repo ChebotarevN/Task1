@@ -56,4 +56,10 @@ public class Rectangle extends Shape {
     public double setSize(double size) {
         return this.size = size;
     }
+
+    public boolean contains(double clickX, double clickY) {
+        double halfSize = size / 2;
+        return clickX >= x - halfSize && clickX <= x + halfSize &&
+                clickY >= y - halfSize && clickY <= y + halfSize;
+    }
 }

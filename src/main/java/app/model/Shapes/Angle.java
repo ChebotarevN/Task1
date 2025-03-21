@@ -71,4 +71,21 @@ public class Angle extends Shape {
     public double setSize(double size) {
         return this.size = size;
     }
+
+    public boolean contains(double clickX, double clickY) {
+        double tolerance = 2.0;
+        double minX1 = x - size * 25;
+        double maxX1 = x + size * 25;
+        double y1 = y + size * 25;
+
+        double minY2 = y - size * 25;
+        double maxY2 = y + size * 25;
+        double x2 = x - size * 25;
+
+        if ((clickX >= minX1 - tolerance && clickX <= maxX1 + tolerance && Math.abs(clickY - y1) <= tolerance) ||
+                (clickY >= minY2 - tolerance && clickY <= maxY2 + tolerance && Math.abs(clickX - x2) <= tolerance)) {
+            return true;
+        }
+        return false;
+    }
 }
