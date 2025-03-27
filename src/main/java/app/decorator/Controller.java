@@ -1,6 +1,5 @@
 package app.decorator;
 
-import app.linker.Component;
 import app.linker.Composite;
 import app.model.*;
 import app.model.Addons.Addon;
@@ -136,6 +135,7 @@ public class Controller implements Initializable {
         graphicsContext.setFill(null);
         graphicsContext.setEffect(null);
         graphicsContext.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+        pane.getChildren().clear();
     }
 
     public void drawShape(MouseEvent mouseEvent) {
@@ -208,7 +208,7 @@ public class Controller implements Initializable {
             }
         }
         if (decorate != null) {
-            composite.add(decorate, canvas.getGraphicsContext2D());
+            composite.select(decorate, canvas.getGraphicsContext2D());
             momentoDraw(canvas.getGraphicsContext2D());
         }
     }

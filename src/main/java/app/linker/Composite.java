@@ -15,9 +15,11 @@ public class Composite {
     }
 
 
-    public void add(Decorate decorate, GraphicsContext gr) {
+    public void select(Decorate decorate, GraphicsContext gr) {
         for (Component comp : array) {
             if (comp.decorate.equals(decorate)) {
+                comp.getDecorate().getShape().setColorStroke(comp.colorStroke);
+                array.remove(comp);
                 return;
             }
         }
