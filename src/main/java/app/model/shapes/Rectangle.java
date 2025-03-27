@@ -1,4 +1,8 @@
-package app.model.Shapes;
+/**
+ * Класс, представляющий фигуру "Прямоугольник".
+ */
+
+package app.model.shapes;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.Timeline;
@@ -30,21 +34,28 @@ public class Rectangle extends Shape {
 
     @Override
     public void draw(Pane pane, Paint paint) {
-        javafx.scene.shape.Rectangle rectangle = new javafx.scene.shape.Rectangle(x, y, size, size);
+        javafx.scene.shape.Rectangle rectangle = new javafx.scene.shape.Rectangle(
+                x - size / 2,
+                y - size / 2,
+                size,
+                size
+        );
         rectangle.setFill(paint);
         rectangle.setStroke(colorStroke);
+
         FadeTransition fadeTransition = new FadeTransition(Duration.millis(1000), rectangle);
         fadeTransition.setFromValue(1.0);
         fadeTransition.setToValue(0.0);
         fadeTransition.setCycleCount(Timeline.INDEFINITE);
         fadeTransition.setAutoReverse(true);
         fadeTransition.play();
-        pane.getChildren().addAll(rectangle);
+
+        pane.getChildren().add(rectangle);
     }
 
     @Override
     public String toString() {
-        return "Квадрат";
+        return "Прямоугольник";
     }
 
     @Override
@@ -57,6 +68,7 @@ public class Rectangle extends Shape {
         return this.size = size;
     }
 
+    @Override
     public boolean contains(double clickX, double clickY) {
         double halfSize = size / 2;
         return clickX >= x - halfSize && clickX <= x + halfSize &&

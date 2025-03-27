@@ -1,5 +1,8 @@
-package app.linker;
+/**
+ * Базовый компонент для реализации паттерна Компоновщик.
+ */
 
+package app.linker;
 
 import app.model.Decorate;
 import javafx.scene.paint.Color;

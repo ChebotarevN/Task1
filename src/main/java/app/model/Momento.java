@@ -1,16 +1,16 @@
+/**
+ * Класс для хранения состояний фигур (паттерн Memento)
+ */
+
 package app.model;
 
 import app.linker.Component;
-import app.linker.Composite;
-
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Queue;
 
 public class Momento {
-
     private Queue<Object> momentoList = new ArrayDeque<>();
-
 
     public void push(Object state) {
         momentoList.add(state);
@@ -45,5 +45,4 @@ public class Momento {
             }
         }
     }
-
 }

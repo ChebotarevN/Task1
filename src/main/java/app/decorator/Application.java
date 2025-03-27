@@ -1,3 +1,8 @@
+/**
+ * Главный класс приложения "Декоратор".
+ * Запускает JavaFX приложение и отображает основное окно.
+ */
+
 package app.decorator;
 
 import javafx.fxml.FXMLLoader;
@@ -7,6 +12,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Application extends javafx.application.Application {
+
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("view.fxml"));

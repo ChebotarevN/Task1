@@ -1,3 +1,7 @@
+/**
+ * Перечисление эффектов для фигур
+ */
+
 package app.model;
 
 public enum EffectEnum {

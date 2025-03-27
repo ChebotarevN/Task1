@@ -1,4 +1,8 @@
-package app.model.Shapes;
+/**
+ * Класс, представляющий фигуру "Пятиугольник".
+ */
+
+package app.model.shapes;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.Timeline;
@@ -11,7 +15,8 @@ import javafx.util.Duration;
 
 public class Pentagon extends Shape {
     private double size;
-    private double[] xPoints, yPoints;
+    private double[] xPoints;
+    private double[] yPoints;
 
     public Pentagon(Color color, Color colorStroke, double x, double y, double size) {
         super(color, colorStroke, x, y);
@@ -23,27 +28,18 @@ public class Pentagon extends Shape {
         gr.setStroke(colorStroke);
         gr.setLineWidth(2);
 
-        // Количество вершин пятиугольника
         int sides = 5;
-
-        // Координаты вершин пятиугольника
         xPoints = new double[sides];
         yPoints = new double[sides];
-
-        // Угол между соседними вершинами
         double angleStep = 2 * Math.PI / sides;
-
-        // Радиус (расстояние от центра до вершины)
         double radius = size;
 
-        // Вычисляем координаты вершин
         for (int i = 0; i < sides; i++) {
-            double angle = angleStep * i - Math.PI / 2; // Начинаем с верхней вершины
+            double angle = angleStep * i - Math.PI / 2;
             xPoints[i] = x + radius * Math.cos(angle);
             yPoints[i] = y + radius * Math.sin(angle);
         }
 
-        // Рисуем пятиугольник
         gr.fillPolygon(xPoints, yPoints, sides);
         gr.strokePolygon(xPoints, yPoints, sides);
     }
@@ -55,31 +51,25 @@ public class Pentagon extends Shape {
         polygon.setStroke(colorStroke);
         polygon.setStrokeWidth(2);
 
-        // Количество вершин пятиугольника
         int sides = 5;
-
-        // Координаты вершин пятиугольника
         xPoints = new double[sides];
         yPoints = new double[sides];
-
-        // Угол между соседними вершинами
         double angleStep = 2 * Math.PI / sides;
-
-        // Радиус (расстояние от центра до вершины)
         double radius = size;
 
-        // Вычисляем координаты вершин
         for (int i = 0; i < sides; i++) {
-            double angle = angleStep * i - Math.PI / 2; // Начинаем с верхней вершины
+            double angle = angleStep * i - Math.PI / 2;
             xPoints[i] = x + radius * Math.cos(angle);
             yPoints[i] = y + radius * Math.sin(angle);
         }
 
-        polygon.getPoints().addAll(xPoints[0], yPoints[0],
+        polygon.getPoints().addAll(
+                xPoints[0], yPoints[0],
                 xPoints[1], yPoints[1],
                 xPoints[2], yPoints[2],
                 xPoints[3], yPoints[3],
-                xPoints[4], yPoints[4]);
+                xPoints[4], yPoints[4]
+        );
 
         FadeTransition fadeTransition = new FadeTransition(Duration.millis(1000), polygon);
         fadeTransition.setFromValue(1.0);
@@ -87,17 +77,14 @@ public class Pentagon extends Shape {
         fadeTransition.setCycleCount(Timeline.INDEFINITE);
         fadeTransition.setAutoReverse(true);
         fadeTransition.play();
-        // Рисуем пятиугольник
-        pane.getChildren().addAll(polygon);
+
+        pane.getChildren().add(polygon);
     }
 
     @Override
     public double area() {
-        // Константа для вычисления площади правильного пятиугольника
         double coefficient = 1.0 / 4.0 * Math.sqrt(5 * (5 + 2 * Math.sqrt(5)));
-        // Радиус описанной окружности
         double radius = size;
-        // Площадь
         return coefficient * radius * radius;
     }
 
@@ -116,6 +103,7 @@ public class Pentagon extends Shape {
         return this.size = size;
     }
 
+    @Override
     public boolean contains(double clickX, double clickY) {
         int intersectCount = 0;
         for (int i = 0; i < xPoints.length; i++) {

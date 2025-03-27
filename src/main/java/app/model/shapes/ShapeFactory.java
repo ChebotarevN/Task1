@@ -1,4 +1,8 @@
-package app.model.Shapes;
+/**
+ * Фабрика для создания фигур.
+ */
+
+package app.model.shapes;
 
 import javafx.scene.paint.Color;
 
@@ -18,7 +22,6 @@ public class ShapeFactory {
     }
 
     public Shape createShape(int index) {
-        Shape shape = shapes.get(index);
-        return shape;
+        return shapes.get(index);
     }
 }

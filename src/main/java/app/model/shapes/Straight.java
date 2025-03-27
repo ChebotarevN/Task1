@@ -1,4 +1,8 @@
-package app.model.Shapes;
+/**
+ * Класс, представляющий фигуру "Линия".
+ */
+
+package app.model.shapes;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.Timeline;
@@ -26,7 +30,11 @@ public class Straight extends Shape {
     public void draw(GraphicsContext gr) {
         gr.setStroke(colorStroke);
         gr.setLineWidth(2);
-        gr.strokePolygon(new double[]{x - size * 25, x + size * 25}, new double[]{y, y}, 2);
+        gr.strokePolygon(
+                new double[]{x - size * 25, x + size * 25},
+                new double[]{y, y},
+                2
+        );
     }
 
     @Override
@@ -34,8 +42,10 @@ public class Straight extends Shape {
         Polygon polygon = new Polygon();
         polygon.setStroke(colorStroke);
         polygon.setStrokeWidth(2);
-        polygon.getPoints().addAll(x - size * 25, y,
-                x + size * 25, y);
+        polygon.getPoints().addAll(
+                x - size * 25, y,
+                x + size * 25, y
+        );
 
         FadeTransition fadeTransition = new FadeTransition(Duration.millis(1000), polygon);
         fadeTransition.setFromValue(1.0);
@@ -43,7 +53,8 @@ public class Straight extends Shape {
         fadeTransition.setCycleCount(Timeline.INDEFINITE);
         fadeTransition.setAutoReverse(true);
         fadeTransition.play();
-        pane.getChildren().addAll(polygon);
+
+        pane.getChildren().add(polygon);
     }
 
     @Override
@@ -61,6 +72,7 @@ public class Straight extends Shape {
         return this.size = size;
     }
 
+    @Override
     public boolean contains(double clickX, double clickY) {
         double tolerance = 2.0;
         double minX = Math.min(x - size * 25, x + size * 25);
@@ -68,10 +80,7 @@ public class Straight extends Shape {
         double minY = y;
         double maxY = y;
 
-        if (clickX >= minX - tolerance && clickX <= maxX + tolerance &&
-                clickY >= minY - tolerance && clickY <= maxY + tolerance) {
-            return true;
-        }
-        return false;
+        return clickX >= minX - tolerance && clickX <= maxX + tolerance &&
+                clickY >= minY - tolerance && clickY <= maxY + tolerance;
     }
 }

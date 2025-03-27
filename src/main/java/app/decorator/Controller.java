@@ -1,12 +1,17 @@
+/**
+ * Контроллер для приложения "Декоратор".
+ * Управляет взаимодействием пользователя с интерфейсом и отрисовкой фигур.
+ */
+
 package app.decorator;
 
 import app.linker.Composite;
 import app.model.*;
-import app.model.Addons.Addon;
-import app.model.Addons.Split;
-import app.model.Addons.Stipple;
-import app.model.Shapes.Shape;
-import app.model.Shapes.ShapeFactory;
+import app.model.addons.Addon;
+import app.model.addons.Split;
+import app.model.addons.Stipple;
+import app.model.shapes.Shape;
+import app.model.shapes.ShapeFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -28,30 +33,33 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
 
     @FXML
-    Canvas canvas;
-
+    private Canvas canvas;
     @FXML
-    ColorPicker colorPicker, colorPicker1, colorPickerStroke;
-
+    private ColorPicker colorPicker;
     @FXML
-    TextField fieldSize;
-
+    private ColorPicker colorPicker1;
     @FXML
-    ChoiceBox choiceFill, choiceEffect, choiceWorkMode;
-
+    private ColorPicker colorPickerStroke;
     @FXML
-    Label textLast;
+    private TextField fieldSize;
     @FXML
-    ListView listView;
-
+    private ChoiceBox<String> choiceFill;
     @FXML
-    HBox boxGradient;
-
+    private ChoiceBox<EffectEnum> choiceEffect;
     @FXML
-    Pane pane;
-
+    private ChoiceBox<String> choiceWorkMode;
     @FXML
-    ToggleButton toggleSplit, toggleStipple;
+    private Label textLast;
+    @FXML
+    private ListView<Shape> listView;
+    @FXML
+    private HBox boxGradient;
+    @FXML
+    private Pane pane;
+    @FXML
+    private ToggleButton toggleSplit;
+    @FXML
+    private ToggleButton toggleStipple;
 
     private ObservableList<Shape> items;
     private ObservableList<String> listFill;
@@ -60,30 +68,53 @@ public class Controller implements Initializable {
     private ArrayList<String> lastShape = new ArrayList<>();
     private Momento momento = new Momento();
     private Composite composite = new Composite();
-    private double startX, startY;
+    private double startX;
+    private double startY;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        initializeShapes();
+        initializeFillOptions();
+        initializeEffectOptions();
+        initializeWorkModeOptions();
+    }
+
+    private void initializeShapes() {
         ShapeFactory shapeFactory = new ShapeFactory();
-        items = FXCollections.observableArrayList(shapeFactory.createShape(0), shapeFactory.createShape(1), shapeFactory.createShape(2),
-                shapeFactory.createShape(3), shapeFactory.createShape(4), shapeFactory.createShape(5));
+        items = FXCollections.observableArrayList(shapeFactory.createShape(0), shapeFactory.createShape(1),
+                shapeFactory.createShape(2),
+                shapeFactory.createShape(3), shapeFactory.createShape(4),
+                shapeFactory.createShape(5));
         listView.setItems(items);
-        listFill = FXCollections.observableArrayList("Цвет", "Линейный градиент", "Радиальный градиент", "Изображение");
+    }
+
+    private void initializeFillOptions() {
+        listFill = FXCollections.observableArrayList("Цвет", "Линейный градиент",
+                "Радиальный градиент", "Изображение");
         choiceFill.setItems(listFill);
         choiceFill.setValue(listFill.getFirst());
-        choiceFill.getSelectionModel().selectedIndexProperty().addListener((_, _, t1) -> changeFill(t1.intValue()));
-        listEffect = FXCollections.observableArrayList(EffectEnum.NONE, EffectEnum.INNER_SHADOW, EffectEnum.BLUR, EffectEnum.DROP_SHADOW, EffectEnum.FADE);
+        choiceFill.getSelectionModel().selectedIndexProperty().addListener((_, _, newValue) ->
+                changeFill(newValue.intValue()));
+    }
+
+    private void initializeEffectOptions() {
+        listEffect = FXCollections.observableArrayList(EffectEnum.NONE, EffectEnum.INNER_SHADOW, EffectEnum.BLUR,
+                EffectEnum.DROP_SHADOW, EffectEnum.FADE);
         choiceEffect.setItems(listEffect);
         choiceEffect.setValue(listEffect.getFirst());
+    }
+
+    private void initializeWorkModeOptions() {
         listWorkMode = FXCollections.observableArrayList("Рисование", "Выделение", "Перемещение");
         choiceWorkMode.setItems(listWorkMode);
         choiceWorkMode.setValue(listWorkMode.getFirst());
-        choiceWorkMode.getSelectionModel().selectedIndexProperty().addListener((_, _, t1) -> setWorkMode(t1.intValue()));
+        choiceWorkMode.getSelectionModel().selectedIndexProperty().addListener((_, _, newValue) ->
+                setWorkMode(newValue.intValue()));
     }
 
     public Effect setEffect() {
         EffectShape effectShape = new EffectShape();
-        return effectShape.getEffect((EffectEnum) choiceEffect.getValue());
+        return effectShape.getEffect(choiceEffect.getValue());
     }
 
     public Paint setFill(double x, double y) {
@@ -91,10 +122,11 @@ public class Controller implements Initializable {
         return fillShape.getFill(choiceFill.getItems().indexOf(choiceFill.getValue()));
     }
 
-    public void changeFill(int num) {
-        String choice = listFill.get(num);
+    public void changeFill(int fillTypeIndex) {
+        String choice = listFill.get(fillTypeIndex);
         switch (choice) {
-            case "Цвет", "Изображение":
+            case "Цвет":
+            case "Изображение":
                 boxGradient.setVisible(false);
                 break;
             default:
@@ -102,8 +134,8 @@ public class Controller implements Initializable {
         }
     }
 
-    public void setWorkMode(int num) {
-        String choice = listWorkMode.get(num);
+    public void setWorkMode(int workModeIndex) {
+        String choice = listWorkMode.get(workModeIndex);
         if (choice.equals("Рисование")) {
             composite.remove();
             clearBox();
@@ -140,11 +172,12 @@ public class Controller implements Initializable {
 
     public void drawShape(MouseEvent mouseEvent) {
         GraphicsContext gc = canvas.getGraphicsContext2D();
-        int index = listView.getSelectionModel().getSelectedIndex(); //получение индекса выбора из списка
-        Shape shape = (Shape) items.get(index).clone(); // создание копии фигуры
-        shape.setColor(colorPicker.getValue()); // установка цвета заполнения фигуры по значению элемента управления colorPicker
+        int index = listView.getSelectionModel().getSelectedIndex();
+        Shape shape = (Shape) items.get(index).clone();
+        shape.setColor(colorPicker.getValue());
         shape.setColorStroke(colorPickerStroke.getValue());
         shape.setXY(mouseEvent.getX(), mouseEvent.getY());
+
         if (!fieldSize.getText().isEmpty()) {
             try {
                 double size = Double.parseDouble(fieldSize.getText());
@@ -155,18 +188,23 @@ public class Controller implements Initializable {
         }
 
         Decorate decorate = new Decorate(shape, setFill(mouseEvent.getX(), mouseEvent.getY()), setEffect());
+
         List<Addon> addons = new ArrayList<>();
         if (toggleStipple.isSelected()) {
-            addons.add(new Stipple((decorate)));
+            addons.add(new Stipple(decorate));
         }
         if (toggleSplit.isSelected()) {
             addons.add(new Split(decorate));
         }
+
         decorate.setAddons(addons);
-        if (choiceEffect.getValue().equals(EffectEnum.FADE))
+
+        if (choiceEffect.getValue().equals(EffectEnum.FADE)) {
             decorate.draw(pane);
-        else
+        } else {
             decorate.draw(gc);
+        }
+
         canvas.toFront();
         momento.push(decorate);
         lastShape.add(shape.toString());

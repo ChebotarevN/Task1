@@ -1,3 +1,7 @@
+/**
+ * Реализация паттерна Компоновщик для работы с группой фигур.
+ */
+
 package app.linker;
 
 import app.model.Decorate;
@@ -6,14 +10,11 @@ import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 
-
 public class Composite {
-    private ArrayList<Component> array = new ArrayList<>();// агрегатор элементарных объектов
-
+    private ArrayList<Component> array = new ArrayList<>();
 
     public Composite() {
     }
-
 
     public void select(Decorate decorate, GraphicsContext gr) {
         for (Component comp : array) {
@@ -37,13 +38,19 @@ public class Composite {
 
     public void saveCoord() {
         for (Component component : array) {
-            component.xy = new double[]{component.getDecorate().getShape().getX(), component.getDecorate().getShape().getY()};
+            component.xy = new double[]{
+                    component.getDecorate().getShape().getX(),
+                    component.getDecorate().getShape().getY()
+            };
         }
     }
 
     public void changeXY(double x, double y) {
         for (Component comp : array) {
-            comp.decorate.getShape().setXY((x + comp.xy[0]), (y + comp.xy[1]));
+            comp.decorate.getShape().setXY(
+                    (x + comp.xy[0]),
+                    (y + comp.xy[1])
+            );
         }
     }
 

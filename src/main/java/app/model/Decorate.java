@@ -1,21 +1,22 @@
+/**
+ * Класс-декоратор для фигур
+ */
+
 package app.model;
 
-import app.model.Addons.Addon;
-import app.model.Shapes.Shape;
+import app.model.addons.Addon;
+import app.model.shapes.Shape;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.effect.Effect;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
-
 import java.util.List;
 
 public class Decorate {
-
     protected Shape shape;
     protected Paint paint;
     protected Effect effect;
     protected List<Addon> addons;
-
 
     public Decorate(Shape shape, Paint paint, Effect effect) {
         this.shape = shape;
@@ -31,7 +32,7 @@ public class Decorate {
         gr.setFill(paint);
         gr.setEffect(effect);
         shape.draw(gr);
-        for(Addon a: addons) {
+        for (Addon a : addons) {
             a.draw(gr);
         }
     }

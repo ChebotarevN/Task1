@@ -1,4 +1,8 @@
-package app.model.Shapes;
+/**
+ * Класс, представляющий фигуру "Круг".
+ */
+
+package app.model.shapes;
 
 import javafx.animation.*;
 import javafx.scene.canvas.GraphicsContext;
@@ -10,7 +14,6 @@ import javafx.util.Duration;
 public class Circle extends Shape {
     protected double diametr;
     protected double radius;
-
 
     public Circle(Color color, Color colorStroke, double x, double y, double diametr) {
         super(color, colorStroke, x, y);
@@ -35,7 +38,7 @@ public class Circle extends Shape {
         fadeTransition.setCycleCount(Timeline.INDEFINITE);
         fadeTransition.setAutoReverse(true);
         fadeTransition.play();
-        pane.getChildren().addAll(circle);
+        pane.getChildren().add(circle);
     }
 
     @Override
@@ -61,6 +64,7 @@ public class Circle extends Shape {
         return diametr = size;
     }
 
+    @Override
     public boolean contains(double clickX, double clickY) {
         double distanceSquared = Math.pow(clickX - x, 2) + Math.pow(clickY - y, 2);
         return distanceSquared <= Math.pow(radius, 2);
