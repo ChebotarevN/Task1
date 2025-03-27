@@ -1,0 +1,666 @@
+мар. 27, 2025 4:54:22 AM app.decorator.Controller initialize
+INFO: Initializing controller
+мар. 27, 2025 4:54:22 AM app.decorator.Controller initialize
+INFO: Controller initialized successfully
+мар. 27, 2025 4:54:27 AM app.decorator.Controller drawShape
+FINE: Drawing shape at X:235.0 Y:246.0
+мар. 27, 2025 4:54:27 AM app.decorator.Controller setFill
+FINE: Setting fill type: Цвет
+мар. 27, 2025 4:54:27 AM app.decorator.Controller setEffect
+FINE: Setting effect: NONE
+мар. 27, 2025 4:54:27 AM app.decorator.Controller drawShape
+FINE: Drawn shape: Круг
+мар. 27, 2025 4:54:28 AM app.decorator.Controller setWorkMode
+INFO: Setting work mode to: Выделение
+мар. 27, 2025 4:54:29 AM app.decorator.Controller selectShape
+FINE: Selecting shape at X:242.0 Y:260.0
+мар. 27, 2025 4:54:29 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:29 AM app.decorator.Controller selectShape
+INFO: Selected shape: Круг
+мар. 27, 2025 4:54:30 AM app.decorator.Controller setWorkMode
+INFO: Setting work mode to: Перемещение
+мар. 27, 2025 4:54:30 AM app.decorator.Controller startMoveSelectedShape
+FINE: Starting move at X:320.0 Y:256.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:319.0 Y:256.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:319.0 Y:257.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:318.0 Y:257.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:318.0 Y:258.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:317.0 Y:259.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:317.0 Y:260.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:316.0 Y:260.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:316.0 Y:261.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:315.0 Y:262.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:314.0 Y:263.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:313.0 Y:263.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:313.0 Y:264.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:312.0 Y:264.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:312.0 Y:265.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:311.0 Y:265.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:309.0 Y:267.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:308.0 Y:267.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:308.0 Y:268.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:307.0 Y:268.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:306.0 Y:269.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:305.0 Y:269.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:304.0 Y:270.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:303.0 Y:271.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:302.0 Y:271.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:301.0 Y:271.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:301.0 Y:272.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:300.0 Y:272.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:299.0 Y:272.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:299.0 Y:273.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:298.0 Y:273.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:297.0 Y:273.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:297.0 Y:274.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:296.0 Y:274.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:296.0 Y:275.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:295.0 Y:275.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:294.0 Y:275.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:293.0 Y:275.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:293.0 Y:276.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:292.0 Y:276.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:291.0 Y:276.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:290.0 Y:276.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:290.0 Y:277.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:289.0 Y:277.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:288.0 Y:277.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:287.0 Y:278.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:287.0 Y:279.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:286.0 Y:279.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:285.0 Y:279.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:284.0 Y:280.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:283.0 Y:280.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:283.0 Y:281.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:282.0 Y:281.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:281.0 Y:281.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:281.0 Y:282.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:280.0 Y:282.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:280.0 Y:283.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:279.0 Y:283.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:279.0 Y:284.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:278.0 Y:284.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:278.0 Y:285.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:277.0 Y:285.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:276.0 Y:286.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:276.0 Y:287.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:275.0 Y:287.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:275.0 Y:288.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:274.0 Y:288.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:274.0 Y:289.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:273.0 Y:290.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:273.0 Y:291.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:272.0 Y:291.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:272.0 Y:292.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:271.0 Y:292.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:271.0 Y:293.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:270.0 Y:293.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:270.0 Y:294.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:269.0 Y:294.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:269.0 Y:295.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:268.0 Y:295.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:268.0 Y:296.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:267.0 Y:297.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:267.0 Y:298.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:266.0 Y:298.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:266.0 Y:299.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:266.0 Y:300.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:265.0 Y:300.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:265.0 Y:301.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:264.0 Y:301.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:264.0 Y:302.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:264.0 Y:303.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:263.0 Y:303.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:263.0 Y:304.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:262.0 Y:305.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:261.0 Y:306.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:260.0 Y:306.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:260.0 Y:307.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:259.0 Y:307.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:259.0 Y:308.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:258.0 Y:308.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:257.0 Y:309.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:256.0 Y:309.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:256.0 Y:310.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:255.0 Y:310.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:254.0 Y:310.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:254.0 Y:311.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:254.0 Y:312.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:31 AM app.decorator.Controller dragMoveSelectedShape
+FINEST: Moving to X:253.0 Y:312.0
+мар. 27, 2025 4:54:31 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:31 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento
+мар. 27, 2025 4:54:32 AM app.decorator.Controller deleteSelectedShape
+INFO: Deleting selected shapes
+мар. 27, 2025 4:54:32 AM app.decorator.Controller clearBox
+FINE: Clearing drawing box
+мар. 27, 2025 4:54:32 AM app.decorator.Controller momentoDraw
+FINE: Redrawing from momento

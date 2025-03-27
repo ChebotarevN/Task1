@@ -1,0 +1,222 @@
+мар. 27, 2025 4:54:22 AM app.model.shapes.Circle <init>
+FINE: Circle created at (5,0,5,0) with diameter 15,0
+мар. 27, 2025 4:54:27 AM app.model.shapes.Circle setSize
+FINER: Setting circle size to: 100.0
+мар. 27, 2025 4:54:27 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (235,0,246,0) radius 50,0
+мар. 27, 2025 4:54:29 AM app.model.shapes.Circle contains
+FINEST: Point (242,0,260,0) inside circle
+мар. 27, 2025 4:54:29 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (235,0,246,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (234,0,246,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (234,0,247,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (233,0,247,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (233,0,248,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (232,0,249,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (232,0,250,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (231,0,250,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (231,0,251,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (230,0,252,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (229,0,253,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (228,0,253,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (228,0,254,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (227,0,254,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (227,0,255,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (226,0,255,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (224,0,257,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (223,0,257,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (223,0,258,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (222,0,258,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (221,0,259,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (220,0,259,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (219,0,260,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (218,0,261,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (217,0,261,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (216,0,261,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (216,0,262,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (215,0,262,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (214,0,262,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (214,0,263,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (213,0,263,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (212,0,263,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (212,0,264,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (211,0,264,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (211,0,265,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (210,0,265,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (209,0,265,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (208,0,265,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (208,0,266,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (207,0,266,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (206,0,266,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (205,0,266,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (205,0,267,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (204,0,267,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (203,0,267,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (202,0,268,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (202,0,269,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (201,0,269,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (200,0,269,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (199,0,270,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (198,0,270,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (198,0,271,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (197,0,271,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (196,0,271,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (196,0,272,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (195,0,272,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (195,0,273,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (194,0,273,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (194,0,274,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (193,0,274,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (193,0,275,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (192,0,275,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (191,0,276,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (191,0,277,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (190,0,277,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (190,0,278,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (189,0,278,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (189,0,279,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (188,0,280,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (188,0,281,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (187,0,281,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (187,0,282,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (186,0,282,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (186,0,283,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (185,0,283,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (185,0,284,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (184,0,284,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (184,0,285,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (183,0,285,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (183,0,286,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (182,0,287,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (182,0,288,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (181,0,288,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (181,0,289,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (181,0,290,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (180,0,290,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (180,0,291,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (179,0,291,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (179,0,292,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (179,0,293,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (178,0,293,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (178,0,294,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (177,0,295,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (176,0,296,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (175,0,296,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (175,0,297,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (174,0,297,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (174,0,298,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (173,0,298,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (172,0,299,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (171,0,299,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (171,0,300,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (170,0,300,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (169,0,300,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (169,0,301,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (169,0,302,0) radius 50,0
+мар. 27, 2025 4:54:31 AM app.model.shapes.Circle draw
+FINER: Drawing circle on graphics context at (168,0,302,0) radius 50,0

@@ -1,0 +1,12 @@
+мар. 27, 2025 4:54:27 AM app.model.FillShape <init>
+INFO: Creating FillShape
+мар. 27, 2025 4:54:27 AM app.model.FillShape <init>
+FINE: Added solid color fill
+мар. 27, 2025 4:54:27 AM app.model.FillShape <init>
+FINE: Added linear gradient fill
+мар. 27, 2025 4:54:27 AM app.model.FillShape <init>
+FINE: Added radial gradient fill
+мар. 27, 2025 4:54:27 AM app.model.FillShape <init>
+FINE: Added image pattern fill
+мар. 27, 2025 4:54:27 AM app.model.FillShape getFill
+FINE: Getting fill type: 0

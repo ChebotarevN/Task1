@@ -1,20 +1,33 @@
 /**
- * Класс для применения эффектов к фигурам
+ * Class for applying effects to shapes
  */
 
 package app.model;
 
-import javafx.scene.effect.BoxBlur;
-import javafx.scene.effect.DropShadow;
-import javafx.scene.effect.Effect;
-import javafx.scene.effect.InnerShadow;
-import javafx.scene.paint.Color;
+import javafx.scene.effect.*;
+
+import java.io.IOException;
 import java.util.EnumMap;
+import java.util.logging.*;
 
 public class EffectShape {
+    private static final Logger logger = Logger.getLogger(EffectShape.class.getName());
     private EnumMap<EffectEnum, Effect> effectEnumMap = new EnumMap<>(EffectEnum.class);
 
+    static {
+        try {
+            FileHandler fh = new FileHandler("logs/effect_shape.log");
+            fh.setFormatter(new SimpleFormatter());
+            logger.addHandler(fh);
+            logger.setLevel(Level.ALL);
+        } catch (IOException e) {
+            logger.log(Level.SEVERE, "Failed to initialize logger", e);
+        }
+    }
+
     public EffectShape() {
+        logger.log(Level.INFO, "Creating EffectShape");
+
         effectEnumMap.put(EffectEnum.NONE, null);
 
         InnerShadow innerShadow = new InnerShadow();
@@ -31,11 +44,14 @@ public class EffectShape {
         DropShadow dropShadow = new DropShadow();
         dropShadow.setOffsetX(4.0f);
         dropShadow.setOffsetY(4.0f);
-        dropShadow.setColor(Color.BLACK);
         effectEnumMap.put(EffectEnum.DROP_SHADOW, dropShadow);
+
+        logger.log(Level.INFO, "EffectShape initialized with " + effectEnumMap.size() + " effects");
     }
 
     public Effect getEffect(EffectEnum effectEnum) {
-        return effectEnumMap.get(effectEnum);
+        Effect effect = effectEnumMap.get(effectEnum);
+        logger.log(Level.FINE, "Getting effect: " + effectEnum);
+        return effect;
     }
 }

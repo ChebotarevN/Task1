@@ -1,0 +1,16 @@
+мар. 27, 2025 4:54:22 AM app.model.shapes.ShapeFactory <init>
+INFO: Creating ShapeFactory
+мар. 27, 2025 4:54:22 AM app.model.shapes.ShapeFactory <init>
+INFO: ShapeFactory initialized with 6 shapes
+мар. 27, 2025 4:54:22 AM app.model.shapes.ShapeFactory createShape
+FINE: Created shape of type: Круг
+мар. 27, 2025 4:54:22 AM app.model.shapes.ShapeFactory createShape
+FINE: Created shape of type: Линия
+мар. 27, 2025 4:54:22 AM app.model.shapes.ShapeFactory createShape
+FINE: Created shape of type: Угол
+мар. 27, 2025 4:54:22 AM app.model.shapes.ShapeFactory createShape
+FINE: Created shape of type: Треугольник
+мар. 27, 2025 4:54:22 AM app.model.shapes.ShapeFactory createShape
+FINE: Created shape of type: Прямоугольник
+мар. 27, 2025 4:54:22 AM app.model.shapes.ShapeFactory createShape
+FINE: Created shape of type: Пятиугольник

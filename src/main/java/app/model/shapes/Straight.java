@@ -1,5 +1,5 @@
 /**
- * Класс, представляющий фигуру "Линия".
+ * Straight line implementation
  */
 
 package app.model.shapes;
@@ -10,51 +10,65 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
-import javafx.scene.shape.Polygon;
+import javafx.scene.shape.Line;
 import javafx.util.Duration;
 
+import java.io.IOException;
+import java.util.logging.*;
+
 public class Straight extends Shape {
+    private static final Logger logger = Logger.getLogger(Straight.class.getName());
     private double size;
+
+    static {
+        try {
+            FileHandler fh = new FileHandler("logs/straight.log");
+            fh.setFormatter(new SimpleFormatter());
+            logger.addHandler(fh);
+            logger.setLevel(Level.ALL);
+        } catch (IOException e) {
+            logger.log(Level.SEVERE, "Failed to initialize logger", e);
+        }
+    }
 
     public Straight(Color color, Color colorStroke, double x, double y, double size) {
         super(color, colorStroke, x, y);
         this.size = size;
+        logger.log(Level.FINE, String.format(
+                "Straight line created at (%.1f,%.1f) size %.1f", x, y, size));
     }
 
     @Override
     public double area() {
-        return (x + size * 100);
+        return 0;
     }
 
     @Override
     public void draw(GraphicsContext gr) {
+        logger.log(Level.FINER, "Drawing straight line on canvas");
         gr.setStroke(colorStroke);
         gr.setLineWidth(2);
         gr.strokePolygon(
                 new double[]{x - size * 25, x + size * 25},
                 new double[]{y, y},
-                2
-        );
+                2);
     }
 
     @Override
     public void draw(Pane pane, Paint paint) {
-        Polygon polygon = new Polygon();
-        polygon.setStroke(colorStroke);
-        polygon.setStrokeWidth(2);
-        polygon.getPoints().addAll(
-                x - size * 25, y,
-                x + size * 25, y
-        );
+        logger.log(Level.FINER, "Drawing straight line on pane");
+        Line line = new Line(x - size * 25, y, x + size * 25, y);
+        line.setStroke(colorStroke);
+        line.setStrokeWidth(2);
 
-        FadeTransition fadeTransition = new FadeTransition(Duration.millis(1000), polygon);
-        fadeTransition.setFromValue(1.0);
-        fadeTransition.setToValue(0.0);
-        fadeTransition.setCycleCount(Timeline.INDEFINITE);
-        fadeTransition.setAutoReverse(true);
-        fadeTransition.play();
+        FadeTransition ft = new FadeTransition(Duration.millis(1000), line);
+        ft.setFromValue(1.0);
+        ft.setToValue(0.0);
+        ft.setCycleCount(Timeline.INDEFINITE);
+        ft.setAutoReverse(true);
+        ft.play();
 
-        pane.getChildren().add(polygon);
+        pane.getChildren().add(line);
     }
 
     @Override
@@ -64,23 +78,24 @@ public class Straight extends Shape {
 
     @Override
     public double[] getSize() {
-        return new double[]{(x + size * 100), 0};
+        return new double[]{size * 50, 0};
     }
 
     @Override
     public double setSize(double size) {
+        logger.log(Level.FINE, "Setting line size to: " + size);
         return this.size = size;
     }
 
     @Override
     public boolean contains(double clickX, double clickY) {
         double tolerance = 2.0;
-        double minX = Math.min(x - size * 25, x + size * 25);
-        double maxX = Math.max(x - size * 25, x + size * 25);
-        double minY = y;
-        double maxY = y;
-
-        return clickX >= minX - tolerance && clickX <= maxX + tolerance &&
-                clickY >= minY - tolerance && clickY <= maxY + tolerance;
+        boolean contains = clickX >= x - size * 25 - tolerance &&
+                clickX <= x + size * 25 + tolerance &&
+                Math.abs(clickY - y) <= tolerance;
+        logger.log(Level.FINEST, String.format(
+                "Point (%.1f,%.1f) %s line",
+                clickX, clickY, contains ? "on" : "not on"));
+        return contains;
     }
 }

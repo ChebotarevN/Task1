@@ -1,0 +1,6 @@
+мар. 27, 2025 4:54:27 AM app.model.EffectShape <init>
+INFO: Creating EffectShape
+мар. 27, 2025 4:54:27 AM app.model.EffectShape <init>
+INFO: EffectShape initialized with 4 effects
+мар. 27, 2025 4:54:27 AM app.model.EffectShape getEffect
+FINE: Getting effect: NONE

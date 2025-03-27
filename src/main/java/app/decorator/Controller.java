@@ -1,6 +1,5 @@
 /**
- * Контроллер для приложения "Декоратор".
- * Управляет взаимодействием пользователя с интерфейсом и отрисовкой фигур.
+ * Controller class for managing the application UI
  */
 
 package app.decorator;
@@ -25,12 +24,15 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.*;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.*;
 
 public class Controller implements Initializable {
+    private static final Logger logger = Logger.getLogger(Controller.class.getName());
 
     @FXML
     private Canvas canvas;
@@ -71,62 +73,79 @@ public class Controller implements Initializable {
     private double startX;
     private double startY;
 
+    static {
+        try {
+            FileHandler fh = new FileHandler("logs/controller.log");
+            fh.setFormatter(new SimpleFormatter());
+            logger.addHandler(fh);
+            logger.setLevel(Level.ALL);
+        } catch (IOException e) {
+            logger.log(Level.SEVERE, "Failed to initialize logger", e);
+        }
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        initializeShapes();
-        initializeFillOptions();
-        initializeEffectOptions();
-        initializeWorkModeOptions();
-    }
+        logger.log(Level.INFO, "Initializing controller");
 
-    private void initializeShapes() {
-        ShapeFactory shapeFactory = new ShapeFactory();
-        items = FXCollections.observableArrayList(shapeFactory.createShape(0), shapeFactory.createShape(1),
-                shapeFactory.createShape(2),
-                shapeFactory.createShape(3), shapeFactory.createShape(4),
-                shapeFactory.createShape(5));
-        listView.setItems(items);
-    }
+        try {
+            ShapeFactory shapeFactory = new ShapeFactory();
+            items = FXCollections.observableArrayList(
+                    shapeFactory.createShape(0),
+                    shapeFactory.createShape(1),
+                    shapeFactory.createShape(2),
+                    shapeFactory.createShape(3),
+                    shapeFactory.createShape(4),
+                    shapeFactory.createShape(5));
 
-    private void initializeFillOptions() {
-        listFill = FXCollections.observableArrayList("Цвет", "Линейный градиент",
-                "Радиальный градиент", "Изображение");
-        choiceFill.setItems(listFill);
-        choiceFill.setValue(listFill.getFirst());
-        choiceFill.getSelectionModel().selectedIndexProperty().addListener((_, _, newValue) ->
-                changeFill(newValue.intValue()));
-    }
+            listView.setItems(items);
+            listFill = FXCollections.observableArrayList(
+                    "Цвет", "Линейный градиент",
+                    "Радиальный градиент", "Изображение");
+            choiceFill.setItems(listFill);
+            choiceFill.setValue(listFill.get(0));
 
-    private void initializeEffectOptions() {
-        listEffect = FXCollections.observableArrayList(EffectEnum.NONE, EffectEnum.INNER_SHADOW, EffectEnum.BLUR,
-                EffectEnum.DROP_SHADOW, EffectEnum.FADE);
-        choiceEffect.setItems(listEffect);
-        choiceEffect.setValue(listEffect.getFirst());
-    }
+            listEffect = FXCollections.observableArrayList(EffectEnum.values());
+            choiceEffect.setItems(listEffect);
+            choiceEffect.setValue(EffectEnum.NONE);
 
-    private void initializeWorkModeOptions() {
-        listWorkMode = FXCollections.observableArrayList("Рисование", "Выделение", "Перемещение");
-        choiceWorkMode.setItems(listWorkMode);
-        choiceWorkMode.setValue(listWorkMode.getFirst());
-        choiceWorkMode.getSelectionModel().selectedIndexProperty().addListener((_, _, newValue) ->
-                setWorkMode(newValue.intValue()));
+            listWorkMode = FXCollections.observableArrayList(
+                    "Рисование", "Выделение", "Перемещение");
+            choiceWorkMode.setItems(listWorkMode);
+            choiceWorkMode.setValue("Рисование");
+
+            choiceFill.getSelectionModel().selectedIndexProperty().addListener(
+                    (_, _, t1) -> changeFill(t1.intValue()));
+            choiceWorkMode.getSelectionModel().selectedIndexProperty().addListener(
+                    (_, _, t1) -> setWorkMode(t1.intValue()));
+
+            logger.log(Level.INFO, "Controller initialized successfully");
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, "Controller initialization failed", e);
+        }
     }
 
     public Effect setEffect() {
-        EffectShape effectShape = new EffectShape();
-        return effectShape.getEffect(choiceEffect.getValue());
+        Effect effect = new EffectShape().getEffect(choiceEffect.getValue());
+        logger.log(Level.FINE, "Setting effect: " + choiceEffect.getValue());
+        return effect;
     }
 
     public Paint setFill(double x, double y) {
-        FillShape fillShape = new FillShape(colorPicker.getValue(), colorPicker1.getValue(), x, y);
-        return fillShape.getFill(choiceFill.getItems().indexOf(choiceFill.getValue()));
+        Paint fill = new FillShape(
+                colorPicker.getValue(),
+                colorPicker1.getValue(),
+                x, y).getFill(choiceFill.getSelectionModel().getSelectedIndex());
+        logger.log(Level.FINE, "Setting fill type: " + choiceFill.getValue());
+        return fill;
     }
 
-    public void changeFill(int fillTypeIndex) {
-        String choice = listFill.get(fillTypeIndex);
+    public void changeFill(int num) {
+        String choice = listFill.get(num);
+        logger.log(Level.INFO, "Changing fill to: " + choice);
         switch (choice) {
-            case "Цвет":
-            case "Изображение":
+            case "Color":
+            case "Image":
                 boxGradient.setVisible(false);
                 break;
             default:
@@ -134,8 +153,10 @@ public class Controller implements Initializable {
         }
     }
 
-    public void setWorkMode(int workModeIndex) {
-        String choice = listWorkMode.get(workModeIndex);
+    public void setWorkMode(int num) {
+        String choice = listWorkMode.get(num);
+        logger.log(Level.INFO, "Setting work mode to: " + choice);
+
         if (choice.equals("Рисование")) {
             composite.remove();
             clearBox();
@@ -153,82 +174,95 @@ public class Controller implements Initializable {
 
     @FXML
     protected void onClickClear() {
+        logger.log(Level.INFO, "Clearing canvas");
         momento = new Momento();
         pane.getChildren().clear();
         clearBox();
-        textLast.setText("Ничего не нарисовано");
+        textLast.setText("Nothing drawn");
         lastShape.clear();
-        System.out.println("Очищено\n");
         canvas.toFront();
     }
 
     private void clearBox() {
-        GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
-        graphicsContext.setFill(null);
-        graphicsContext.setEffect(null);
-        graphicsContext.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+        logger.log(Level.FINE, "Clearing drawing box");
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        gc.setFill(null);
+        gc.setEffect(null);
+        gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
         pane.getChildren().clear();
     }
 
     public void drawShape(MouseEvent mouseEvent) {
-        GraphicsContext gc = canvas.getGraphicsContext2D();
-        int index = listView.getSelectionModel().getSelectedIndex();
-        Shape shape = (Shape) items.get(index).clone();
-        shape.setColor(colorPicker.getValue());
-        shape.setColorStroke(colorPickerStroke.getValue());
-        shape.setXY(mouseEvent.getX(), mouseEvent.getY());
+        logger.log(Level.FINE, "Drawing shape at X:" + mouseEvent.getX() + " Y:" + mouseEvent.getY());
 
-        if (!fieldSize.getText().isEmpty()) {
-            try {
-                double size = Double.parseDouble(fieldSize.getText());
-                shape.setSize(size);
-            } catch (NumberFormatException e) {
-                System.out.println("Введена строка в поле size");
+        try {
+            GraphicsContext gc = canvas.getGraphicsContext2D();
+            Shape shape = (Shape) listView.getSelectionModel().getSelectedItem().clone();
+
+            shape.setColor(colorPicker.getValue());
+            shape.setColorStroke(colorPickerStroke.getValue());
+            shape.setXY(mouseEvent.getX(), mouseEvent.getY());
+
+            if (!fieldSize.getText().isEmpty()) {
+                try {
+                    double size = Double.parseDouble(fieldSize.getText());
+                    shape.setSize(size);
+                } catch (NumberFormatException e) {
+                    logger.log(Level.WARNING, "Invalid size value: " + fieldSize.getText());
+                }
             }
+
+            Decorate decorate = new Decorate(shape, setFill(mouseEvent.getX(), mouseEvent.getY()), setEffect());
+            List<Addon> addons = new ArrayList<>();
+
+            if (toggleStipple.isSelected()) {
+                addons.add(new Stipple(decorate));
+                logger.log(Level.FINER, "Added stipple effect");
+            }
+            if (toggleSplit.isSelected()) {
+                addons.add(new Split(decorate));
+                logger.log(Level.FINER, "Added split effect");
+            }
+
+            decorate.setAddons(addons);
+
+            if (choiceEffect.getValue() == EffectEnum.FADE) {
+                decorate.draw(pane);
+            } else {
+                decorate.draw(gc);
+            }
+
+            momento.push(decorate);
+            lastShape.add(shape.toString());
+            textLast.setText(lastShape.get(lastShape.size() - 1));
+            canvas.toFront();
+
+            logger.log(Level.FINE, "Drawn shape: " + shape.toString());
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, "Error drawing shape", e);
         }
-
-        Decorate decorate = new Decorate(shape, setFill(mouseEvent.getX(), mouseEvent.getY()), setEffect());
-
-        List<Addon> addons = new ArrayList<>();
-        if (toggleStipple.isSelected()) {
-            addons.add(new Stipple(decorate));
-        }
-        if (toggleSplit.isSelected()) {
-            addons.add(new Split(decorate));
-        }
-
-        decorate.setAddons(addons);
-
-        if (choiceEffect.getValue().equals(EffectEnum.FADE)) {
-            decorate.draw(pane);
-        } else {
-            decorate.draw(gc);
-        }
-
-        canvas.toFront();
-        momento.push(decorate);
-        lastShape.add(shape.toString());
-        textLast.setText(lastShape.getLast());
     }
 
     public void undoLast() {
+        logger.log(Level.INFO, "Undoing last action");
         if (momento.getSize() > 1) {
             GraphicsContext gc = canvas.getGraphicsContext2D();
             gc.setEffect(null);
             gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
             pane.getChildren().clear();
-            lastShape.removeLast();
+            lastShape.remove(lastShape.size() - 1);
             momento.poll();
             momentoDraw(gc);
-            textLast.setText(lastShape.getLast());
+            textLast.setText(lastShape.get(lastShape.size() - 1));
         } else {
             onClickClear();
-            textLast.setText("Ничего не нарисовано");
+            textLast.setText("Nothing drawn");
         }
         canvas.toFront();
     }
 
     private void momentoDraw(GraphicsContext gc) {
+        logger.log(Level.FINE, "Redrawing from momento");
         for (Object item : momento.getListShapes()) {
             if (item instanceof Pane) {
                 pane.getChildren().add((Pane) item);
@@ -239,15 +273,18 @@ public class Controller implements Initializable {
     }
 
     public void selectShape(MouseEvent mouseEvent) {
+        logger.log(Level.FINE, "Selecting shape at X:" + mouseEvent.getX() + " Y:" + mouseEvent.getY());
         Decorate decorate = null;
         for (Object item : momento.getListShapes()) {
             if (((Decorate) item).getShape().contains(mouseEvent.getX(), mouseEvent.getY())) {
                 decorate = (Decorate) item;
+                break;
             }
         }
         if (decorate != null) {
             composite.select(decorate, canvas.getGraphicsContext2D());
             momentoDraw(canvas.getGraphicsContext2D());
+            logger.log(Level.INFO, "Selected shape: " + decorate.getShape().toString());
         }
     }
 
@@ -255,9 +292,11 @@ public class Controller implements Initializable {
         startX = mouseEvent.getX();
         startY = mouseEvent.getY();
         composite.saveCoord();
+        logger.log(Level.FINE, "Starting move at X:" + startX + " Y:" + startY);
     }
 
     public void dragMoveSelectedShape(MouseEvent mouseEvent) {
+        logger.log(Level.FINEST, "Moving to X:" + mouseEvent.getX() + " Y:" + mouseEvent.getY());
         clearBox();
         composite.changeXY(mouseEvent.getX() - startX, mouseEvent.getY() - startY);
         momentoDraw(canvas.getGraphicsContext2D());
@@ -265,6 +304,7 @@ public class Controller implements Initializable {
 
     @FXML
     protected void deleteSelectedShape() {
+        logger.log(Level.INFO, "Deleting selected shapes");
         ArrayList<Decorate> arrayList = composite.getArray();
         for (Decorate decorate : arrayList) {
             momento.remove(decorate);

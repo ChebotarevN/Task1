@@ -1,5 +1,5 @@
 /**
- * Класс для отображения треугольника
+ * Triangle shape implementation
  */
 
 package app.model.shapes;
@@ -13,15 +13,32 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Polygon;
 import javafx.util.Duration;
 
+import java.io.IOException;
+import java.util.logging.*;
+
 public class Triangle extends Shape {
+    private static final Logger logger = Logger.getLogger(Triangle.class.getName());
     private double size;
+
+    static {
+        try {
+            FileHandler fh = new FileHandler("logs/triangle.log");
+            fh.setFormatter(new SimpleFormatter());
+            logger.addHandler(fh);
+            logger.setLevel(Level.ALL);
+        } catch (IOException e) {
+            logger.log(Level.SEVERE, "Failed to initialize logger", e);
+        }
+    }
 
     public Triangle(Color color, Color colorStroke, double x, double y, double size) {
         super(color, colorStroke, x, y);
         this.size = size;
+        logger.log(Level.FINE, String.format(
+                "Triangle created at (%.1f,%.1f) size %.1f", x, y, size));
     }
 
-    public double[] getPointsX() {
+    private double[] getPointsX() {
         return new double[]{
                 x,
                 x - size / 2,
@@ -29,7 +46,7 @@ public class Triangle extends Shape {
         };
     }
 
-    public double[] getPointsY() {
+    private double[] getPointsY() {
         return new double[]{
                 y - size * Math.sqrt(3) / 4,
                 y + size * Math.sqrt(3) / 4,
@@ -39,6 +56,7 @@ public class Triangle extends Shape {
 
     @Override
     public void draw(GraphicsContext gr) {
+        logger.log(Level.FINER, "Drawing triangle on canvas");
         gr.setStroke(colorStroke);
         gr.setLineWidth(2);
         gr.fillPolygon(getPointsX(), getPointsY(), 3);
@@ -47,6 +65,7 @@ public class Triangle extends Shape {
 
     @Override
     public void draw(Pane pane, Paint paint) {
+        logger.log(Level.FINER, "Drawing triangle on pane");
         Polygon polygon = new Polygon();
         polygon.getPoints().addAll(
                 x, y - size * Math.sqrt(3) / 4,
@@ -56,29 +75,20 @@ public class Triangle extends Shape {
         polygon.setStroke(colorStroke);
         polygon.setStrokeWidth(2);
 
-        FadeTransition fadeTransition = new FadeTransition(Duration.millis(1000), polygon);
-        fadeTransition.setFromValue(1.0);
-        fadeTransition.setToValue(0.0);
-        fadeTransition.setCycleCount(Timeline.INDEFINITE);
-        fadeTransition.setAutoReverse(true);
-        fadeTransition.play();
+        FadeTransition ft = new FadeTransition(Duration.millis(1000), polygon);
+        ft.setFromValue(1.0);
+        ft.setToValue(0.0);
+        ft.setCycleCount(Timeline.INDEFINITE);
+        ft.setAutoReverse(true);
+        ft.play();
 
         pane.getChildren().add(polygon);
     }
 
     @Override
     public double area() {
-        double[] xCoords = {x + 10, x + (18 * size), x + (30 * size)};
-        double[] yCoords = {y + (20 * size), y + (10 * size), y + (20 * size)};
-
-        double area = 0.0;
-        for (int i = 0; i < 1; i++) {
-            double triangleArea = Math.abs(
-                    0.5 * (xCoords[0] * (yCoords[1] - yCoords[2]) +
-                            xCoords[1] * (yCoords[2] - yCoords[0]) +
-                            xCoords[2] * (yCoords[0] - yCoords[1])));
-            area += triangleArea;
-        }
+        double area = size * size * Math.sqrt(3) / 4;
+        logger.log(Level.FINEST, "Area calculated: " + area);
         return area;
     }
 
@@ -89,13 +99,12 @@ public class Triangle extends Shape {
 
     @Override
     public double[] getSize() {
-        return new double[]{
-                size * Math.sqrt(3) / 4,
-                size * Math.sqrt(3) / 2};
+        return new double[]{size, size * Math.sqrt(3) / 2};
     }
 
     @Override
     public double setSize(double size) {
+        logger.log(Level.FINE, "Setting triangle size to: " + size);
         return this.size = size;
     }
 
@@ -104,24 +113,16 @@ public class Triangle extends Shape {
         double[] xPoints = getPointsX();
         double[] yPoints = getPointsY();
 
-        double A = area(
-                xPoints[0], yPoints[0],
-                xPoints[1], yPoints[1],
-                xPoints[2], yPoints[2]);
-        double A1 = area(
-                clickX, clickY,
-                xPoints[1], yPoints[1],
-                xPoints[2], yPoints[2]);
-        double A2 = area(
-                xPoints[0], yPoints[0],
-                clickX, clickY,
-                xPoints[2], yPoints[2]);
-        double A3 = area(
-                xPoints[0], yPoints[0],
-                xPoints[1], yPoints[1],
-                clickX, clickY);
+        double A = area(xPoints[0], yPoints[0], xPoints[1], yPoints[1], xPoints[2], yPoints[2]);
+        double A1 = area(clickX, clickY, xPoints[1], yPoints[1], xPoints[2], yPoints[2]);
+        double A2 = area(xPoints[0], yPoints[0], clickX, clickY, xPoints[2], yPoints[2]);
+        double A3 = area(xPoints[0], yPoints[0], xPoints[1], yPoints[1], clickX, clickY);
 
-        return Math.abs(A - (A1 + A2 + A3)) < 0.0001;
+        boolean contains = Math.abs(A - (A1 + A2 + A3)) < 0.0001;
+        logger.log(Level.FINEST, String.format(
+                "Point (%.1f,%.1f) %s triangle",
+                clickX, clickY, contains ? "inside" : "outside"));
+        return contains;
     }
 
     private double area(
