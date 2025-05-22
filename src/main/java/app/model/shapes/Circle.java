@@ -84,10 +84,10 @@ public class Circle extends Shape {
     }
 
     @Override
-    public double setSize(double size) {
+    public void setSize(double size) {
         logger.log(Level.FINER, "Setting circle size to: " + size);
         radius = size / 2;
-        return diameter = size;
+        diameter = size;
     }
 
     @Override

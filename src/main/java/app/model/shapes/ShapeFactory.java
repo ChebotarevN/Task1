@@ -12,7 +12,7 @@ import java.util.logging.*;
 
 public class ShapeFactory {
     private static final Logger logger = Logger.getLogger(ShapeFactory.class.getName());
-    private HashMap<Integer, Shape> shapes;
+    private final HashMap<Integer, Shape> shapes;
 
     static {
         try {

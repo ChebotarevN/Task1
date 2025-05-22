@@ -103,9 +103,9 @@ public class Triangle extends Shape {
     }
 
     @Override
-    public double setSize(double size) {
+    public void setSize(double size) {
         logger.log(Level.FINE, "Setting triangle size to: " + size);
-        return this.size = size;
+        this.size = size;
     }
 
     @Override

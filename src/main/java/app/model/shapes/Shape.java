@@ -26,7 +26,7 @@ public abstract class Shape implements Cloneable {
     public abstract void draw(GraphicsContext gr);
     public abstract void draw(Pane pane, Paint paint);
     public abstract double[] getSize();
-    public abstract double setSize(double size);
+    public abstract void setSize(double size);
     public abstract boolean contains(double clickX, double clickY);
 
     public void setColor(Color color) {

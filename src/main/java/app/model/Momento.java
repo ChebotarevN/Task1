@@ -4,8 +4,6 @@
 
 package app.model;
 
-import app.linker.Component;
-
 import java.io.IOException;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -14,7 +12,7 @@ import java.util.logging.*;
 
 public class Momento {
     private static final Logger logger = Logger.getLogger(Momento.class.getName());
-    private Queue<Object> momentoList = new ArrayDeque<>();
+    private final Queue<Object> momentoList = new ArrayDeque<>();
 
     static {
         try {
@@ -36,15 +34,14 @@ public class Momento {
         momentoList.add(state);
     }
 
-    public Object poll() {
+    public void poll() {
         logger.log(Level.FINE, "Polling state from momento");
-        return momentoList.poll();
+        momentoList.poll();
     }
 
-    public boolean remove(Object state) {
+    public void remove(Object state) {
         boolean removed = momentoList.remove(state);
         logger.log(Level.FINE, "Remove operation " + (removed ? "succeeded" : "failed"));
-        return removed;
     }
 
     public int getSize() {

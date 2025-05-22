@@ -14,7 +14,7 @@ import java.util.logging.*;
 
 public class Composite {
     private static final Logger logger = Logger.getLogger(Composite.class.getName());
-    private ArrayList<Component> array = new ArrayList<>();
+    private final ArrayList<Component> array = new ArrayList<>();
 
     static {
         try {

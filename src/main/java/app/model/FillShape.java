@@ -13,7 +13,7 @@ import java.util.logging.*;
 
 public class FillShape {
     private static final Logger logger = Logger.getLogger(FillShape.class.getName());
-    private HashMap<Integer, Paint> fills;
+    private final HashMap<Integer, Paint> fills;
 
     static {
         try {

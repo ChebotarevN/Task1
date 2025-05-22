@@ -63,13 +63,11 @@ public class Controller implements Initializable {
     @FXML
     private ToggleButton toggleStipple;
 
-    private ObservableList<Shape> items;
     private ObservableList<String> listFill;
-    private ObservableList<EffectEnum> listEffect;
     private ObservableList<String> listWorkMode;
-    private ArrayList<String> lastShape = new ArrayList<>();
+    private final ArrayList<String> lastShape = new ArrayList<>();
     private Momento momento = new Momento();
-    private Composite composite = new Composite();
+    private final Composite composite = new Composite();
     private double startX;
     private double startY;
 
@@ -90,7 +88,7 @@ public class Controller implements Initializable {
 
         try {
             ShapeFactory shapeFactory = new ShapeFactory();
-            items = FXCollections.observableArrayList(
+            ObservableList<Shape> items = FXCollections.observableArrayList(
                     shapeFactory.createShape(0),
                     shapeFactory.createShape(1),
                     shapeFactory.createShape(2),
@@ -103,9 +101,9 @@ public class Controller implements Initializable {
                     "Цвет", "Линейный градиент",
                     "Радиальный градиент", "Изображение");
             choiceFill.setItems(listFill);
-            choiceFill.setValue(listFill.get(0));
+            choiceFill.setValue(listFill.getFirst());
 
-            listEffect = FXCollections.observableArrayList(EffectEnum.values());
+            ObservableList<EffectEnum> listEffect = FXCollections.observableArrayList(EffectEnum.values());
             choiceEffect.setItems(listEffect);
             choiceEffect.setValue(EffectEnum.NONE);
 

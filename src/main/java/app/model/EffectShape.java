@@ -12,7 +12,7 @@ import java.util.logging.*;
 
 public class EffectShape {
     private static final Logger logger = Logger.getLogger(EffectShape.class.getName());
-    private EnumMap<EffectEnum, Effect> effectEnumMap = new EnumMap<>(EffectEnum.class);
+    private final EnumMap<EffectEnum, Effect> effectEnumMap = new EnumMap<>(EffectEnum.class);
 
     static {
         try {

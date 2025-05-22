@@ -85,9 +85,9 @@ public class Rectangle extends Shape {
     }
 
     @Override
-    public double setSize(double size) {
+    public void setSize(double size) {
         logger.log(Level.FINE, "Setting rectangle size to: " + size);
-        return this.size = size;
+        this.size = size;
     }
 
     @Override
